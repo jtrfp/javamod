@@ -8,6 +8,7 @@
 	<packaging>jar</packaging>
 
 	<name>javamod</name>
+	<description>Mod player implemented in pure Java</description>
 	<url>http://www.quippy.de/mod_en.php</url>
 
 	<licenses>
@@ -16,6 +17,12 @@
            <url>http://www.gnu.org/licenses/gpl-2.0-standalone.html</url>
         </license>
     </licenses>
+    
+	<scm>
+		<url>git@github.com:jtrfp/javamod</url>
+		<connection>scm:git:git@github.com:jtrfp/javamod.git</connection>
+		<developerConnection>scm:git:git@github.com:jtrfp/javamod.git</developerConnection>
+	</scm>
 	
   	<developers>
 		<developer>
