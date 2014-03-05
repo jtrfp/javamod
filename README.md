@@ -1,5 +1,7 @@
 # JavaMod
 
+[![Build Status](https://travis-ci.org/jtrfp/javamod.png?branch=master)](https://travis-ci.org/jtrfp/javamod)
+
 This project tries to provide a mavenized copy of the JavaMod library (http://www.quippy.de/mod_en.php). The sources here are copied and the jars are provided with the consent of the original author. Nevertheless the releases shall be regarded as non offical.
 
 ## Usage
