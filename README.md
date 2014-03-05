@@ -10,7 +10,7 @@ Just add the following snippet to your POM.
 
 ```xml
 <dependency>
-  <groupId>org.jtrfp</groupId>
+  <groupId>de.quippy</groupId>
   <artifactId>javamod</artifactId>
   <version>2.2</version>
 </dependency>
