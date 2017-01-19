@@ -6,3 +6,12 @@
 *.ear
 /target
 /.settings
+
+# Eclipse Stuff #
+.classpath
+.project
+.settings
+.idea
+.metadata
+*.iml
+*.ipr
