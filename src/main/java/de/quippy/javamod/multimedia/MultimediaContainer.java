@@ -22,7 +22,6 @@
 package de.quippy.javamod.multimedia;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -76,6 +75,7 @@ public abstract class MultimediaContainer
 	}
 	public String getPrintableFileUrl(URL urlName)
 	{
+		if (urlName==null) return "";
 		try
 		{
 			java.io.File f = new java.io.File(urlName.toURI());
@@ -88,7 +88,7 @@ public abstract class MultimediaContainer
 				return f.getAbsolutePath();
 			}
 		}
-		catch (URISyntaxException e)
+		catch (Throwable e)
 		{
 			return urlName.toExternalForm();
 		}

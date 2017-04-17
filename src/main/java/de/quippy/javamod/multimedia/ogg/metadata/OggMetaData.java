@@ -53,15 +53,15 @@ public class OggMetaData
 		super();
 		readMetaData(oggFileURL);
 	}
-	private void readMetaData(URL oggFileURL)
+	public OggMetaData(InputStream in)
 	{
-		InputStream in = null;
+		super();
+		readMetaData(in);
+	}
+	private void readMetaData(InputStream in)
+	{
 		try
 		{
-
-			urlName = oggFileURL;
-			
-			in = new FileOrPackedInputStream(oggFileURL);
 		    JOrbisComment jorbiscomment=new JOrbisComment();
 		    jorbiscomment.read(in);
 		    in.close();
@@ -77,9 +77,24 @@ public class OggMetaData
 					int equalIndex = comment.indexOf('=');
 					String key = comment.substring(0, equalIndex);
 					String value = new String(comment.substring(equalIndex+1).getBytes(), "UTF-8");
-					if (equalIndex!=-1) oggInfo.put(key, value);
+					if (equalIndex!=-1 && key!=null) oggInfo.put(key.toUpperCase(), value);
 				}
 			}
+		}
+		catch (Exception ex)
+		{
+			throw new RuntimeException(ex);
+		}
+	}
+	private void readMetaData(URL oggFileURL)
+	{
+		InputStream in = null;
+		try
+		{
+
+			urlName = oggFileURL;
+			in = new FileOrPackedInputStream(oggFileURL);
+			readMetaData(in);
 		}
 		catch (Exception ex)
 		{

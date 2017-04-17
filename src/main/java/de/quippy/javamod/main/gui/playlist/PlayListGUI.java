@@ -262,7 +262,7 @@ public class PlayListGUI extends JPanel implements PlaylistChangedListener, Play
 			repeatCheckBox = new JCheckBox();
 			repeatCheckBox.setName("repeatCombobox");
 			repeatCheckBox.setText("repeat playlist");
-			repeatCheckBox.setFont(Helpers.DIALOG_FONT);
+			repeatCheckBox.setFont(Helpers.getDialogFont());
 			repeatCheckBox.addItemListener(new ItemListener()
 			{
 				public void itemStateChanged(ItemEvent e)
@@ -752,7 +752,7 @@ public class PlayListGUI extends JPanel implements PlaylistChangedListener, Play
 			do
 			{
 				String suggestedPath = Helpers.createLocalFileStringFromURL(playList.getLoadedFromURL(), true);
-				FileChooserResult selectedFile = Helpers.selectFileNameFor(PlayListGUI.this, suggestedPath, "Save playlist to", new FileFilter[] { PlayList.PLAYLIST_FILE_FILTER }, 1, false);
+				FileChooserResult selectedFile = Helpers.selectFileNameFor(PlayListGUI.this, suggestedPath, "Save playlist to", new FileFilter[] { PlayList.PLAYLIST_FILE_FILTER }, 1, false, false);
 				if (selectedFile!=null)
 				{
 					File f = selectedFile.getSelectedFile();
@@ -1207,8 +1207,8 @@ public class PlayListGUI extends JPanel implements PlaylistChangedListener, Play
 		StringBuilder html = new StringBuilder("<TR style=\"")
 			.append("background:#").append((entry.isSelected())?markColorBackground:unmarkColorBackground).append("; ")
 			.append("color:#").append((entry.isSelected())?markColorForeground:unmarkColorForeground).append("; ")
-			.append("font-family:").append(Helpers.TEXTAREA_FONT.getFamily()).append("; ")
-			.append("font-size:").append(Helpers.TEXTAREA_FONT.getSize()).append(';')
+			.append("font-family:").append(Helpers.getTextAreaFont().getFamily()).append("; ")
+			.append("font-size:").append(Helpers.getTextAreaFont().getSize()).append(';')
 			.append("font-weight:").append(entry.isActive()?"bold":"normal").append(';')
 			.append("\"><TD align=\"left\" nowrap>").append(text.replace(" ", "&nbsp;"))
 			.append("</TD><TD align=\"right\" nowrap>").append(duration.replace(" ", "&nbsp;")).append("</TD></TR>");

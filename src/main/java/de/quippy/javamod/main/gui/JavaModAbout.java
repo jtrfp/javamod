@@ -258,7 +258,7 @@ public class JavaModAbout extends JDialog
 			textLine1 = new javax.swing.JLabel();
 			textLine1.setName("textLine1");
 			textLine1.setText(Helpers.FULLVERSION);
-			textLine1.setFont(Helpers.DIALOG_FONT);
+			textLine1.setFont(Helpers.getDialogFont());
 		}
 		return textLine1;
 	}
@@ -270,7 +270,7 @@ public class JavaModAbout extends JDialog
 			textLine2 = new javax.swing.JLabel();
 			textLine2.setName("textLine2");
 			textLine2.setText(Helpers.COPYRIGHT);
-			textLine2.setFont(Helpers.DIALOG_FONT);
+			textLine2.setFont(Helpers.getDialogFont());
 		}
 		return textLine2;
 	}
@@ -282,7 +282,7 @@ public class JavaModAbout extends JDialog
 			textLine3 = new javax.swing.JLabel();
 			textLine3.setName("textLine3");
 			textLine3.setText("MP3 decoding with JLayer V1.0.1");
-			textLine3.setFont(Helpers.DIALOG_FONT);
+			textLine3.setFont(Helpers.getDialogFont());
 		}
 		return textLine3;
 	}
@@ -294,7 +294,7 @@ public class JavaModAbout extends JDialog
 			textLine4 = new javax.swing.JLabel();
 			textLine4.setName("textLine4");
 			textLine4.setText("SID decoding with the JSIDPlay Lib V2 1.4");
-			textLine4.setFont(Helpers.DIALOG_FONT);
+			textLine4.setFont(Helpers.getDialogFont());
 		}
 		return textLine4;
 	}
@@ -306,7 +306,7 @@ public class JavaModAbout extends JDialog
 			textLine5 = new javax.swing.JLabel();
 			textLine5.setName("textLine5");
 			textLine5.setText("OGG decoding with the JOrbis Lib V0.0.17");
-			textLine5.setFont(Helpers.DIALOG_FONT);
+			textLine5.setFont(Helpers.getDialogFont());
 		}
 		return textLine5;
 	}
@@ -318,7 +318,7 @@ public class JavaModAbout extends JDialog
 			textLine6 = new javax.swing.JLabel();
 			textLine6.setName("textLine6");
 			textLine6.setText("APE decoding with the JMac Lib V1.74");
-			textLine6.setFont(Helpers.DIALOG_FONT);
+			textLine6.setFont(Helpers.getDialogFont());
 		}
 		return textLine6;
 	}
@@ -330,7 +330,7 @@ public class JavaModAbout extends JDialog
 			textLine7 = new javax.swing.JLabel();
 			textLine7.setName("textLine7");
 			textLine7.setText("FLAC decoding with the JFlac Lib V1.3");
-			textLine7.setFont(Helpers.DIALOG_FONT);
+			textLine7.setFont(Helpers.getDialogFont());
 		}
 		return textLine7;
 	}
@@ -342,7 +342,7 @@ public class JavaModAbout extends JDialog
 			textLine8 = new javax.swing.JLabel();
 			textLine8.setName("textLine8");
 			textLine8.setText(System.getProperty("java.runtime.name"));
-			textLine8.setFont(Helpers.DIALOG_FONT);
+			textLine8.setFont(Helpers.getDialogFont());
 		}
 		return textLine8;
 	}
@@ -354,7 +354,7 @@ public class JavaModAbout extends JDialog
 			textLine9 = new javax.swing.JLabel();
 			textLine9.setName("textLine9");
 			textLine9.setText(System.getProperty("java.runtime.version") + " (" + System.getProperty("java.vm.info") + ")");
-			textLine9.setFont(Helpers.DIALOG_FONT);
+			textLine9.setFont(Helpers.getDialogFont());
 		}
 		return textLine9;
 	}
@@ -366,7 +366,7 @@ public class JavaModAbout extends JDialog
 			textLine10 = new javax.swing.JLabel();
 			textLine10.setName("textLine10");
 			textLine10.setText(System.getProperty("java.vm.name"));
-			textLine10.setFont(Helpers.DIALOG_FONT);
+			textLine10.setFont(Helpers.getDialogFont());
 		}
 		return textLine10;
 	}

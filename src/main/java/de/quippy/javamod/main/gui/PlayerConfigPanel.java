@@ -60,7 +60,7 @@ public class PlayerConfigPanel extends JPanel
 		if (tabbedPane==null)
 		{
 			tabbedPane = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
-			tabbedPane.setFont(Helpers.DIALOG_FONT);
+			tabbedPane.setFont(Helpers.getDialogFont());
 			ArrayList<MultimediaContainer> containerList = MultimediaContainerManager.getContainerArray();
 			for (int i=0; i<containerList.size(); i++)
 			{

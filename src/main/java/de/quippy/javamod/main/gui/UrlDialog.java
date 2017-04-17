@@ -72,7 +72,7 @@ public class UrlDialog extends JDialog
 
         jLabel1 = new javax.swing.JLabel();
         jLabel1.setText("Enter an URL location to open here:");
-        jLabel1.setFont(Helpers.DIALOG_FONT);
+        jLabel1.setFont(Helpers.getDialogFont());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -80,7 +80,7 @@ public class UrlDialog extends JDialog
         
         jLabel2 = new javax.swing.JLabel();
         jLabel2.setText("\"For example: http://www.server.com:8000\"");
-        jLabel2.setFont(Helpers.DIALOG_FONT);
+        jLabel2.setFont(Helpers.getDialogFont());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -90,7 +90,7 @@ public class UrlDialog extends JDialog
 
         textField = new javax.swing.JTextField();
         textField.setColumns(10);
-        textField.setFont(Helpers.DIALOG_FONT);
+        textField.setFont(Helpers.getDialogFont());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -103,7 +103,7 @@ public class UrlDialog extends JDialog
         openButton = new javax.swing.JButton();
         openButton.setMnemonic('O');
         openButton.setText("Open");
-        openButton.setFont(Helpers.DIALOG_FONT);
+        openButton.setFont(Helpers.getDialogFont());
         openButton.setToolTipText("Open");
         openButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -117,7 +117,7 @@ public class UrlDialog extends JDialog
         cancelButton.setMnemonic('C');
         cancelButton.setText("Cancel");
         cancelButton.setToolTipText("Cancel");
-        cancelButton.setFont(Helpers.DIALOG_FONT);
+        cancelButton.setFont(Helpers.getDialogFont());
         cancelButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)

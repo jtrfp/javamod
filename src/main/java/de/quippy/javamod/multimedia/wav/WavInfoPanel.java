@@ -112,7 +112,7 @@ public class WavInfoPanel extends JPanel
 		if (wavNameLabel==null)
 		{
 			wavNameLabel = new JLabel("Wav file name:");
-			wavNameLabel.setFont(Helpers.DIALOG_FONT);
+			wavNameLabel.setFont(Helpers.getDialogFont());
 		}
 		return wavNameLabel;
 	}
@@ -122,7 +122,7 @@ public class WavInfoPanel extends JPanel
 		{
 			wavName = new javax.swing.JTextField();
 			wavName.setEditable(false);
-			wavName.setFont(Helpers.DIALOG_FONT);
+			wavName.setFont(Helpers.getDialogFont());
 		}
 		return wavName;
 	}
@@ -131,7 +131,7 @@ public class WavInfoPanel extends JPanel
 		if (wavDurationLabel==null)
 		{
 			wavDurationLabel = new JLabel("Duration:");
-			wavDurationLabel.setFont(Helpers.DIALOG_FONT);
+			wavDurationLabel.setFont(Helpers.getDialogFont());
 		}
 		return wavDurationLabel;
 	}
@@ -142,7 +142,7 @@ public class WavInfoPanel extends JPanel
 			wavDuration = new javax.swing.JTextField();
 			wavDuration.setEditable(false);
 			wavDuration.setColumns(5);
-			wavDuration.setFont(Helpers.DIALOG_FONT);
+			wavDuration.setFont(Helpers.getDialogFont());
 		}
 		return wavDuration;
 	}
@@ -151,7 +151,7 @@ public class WavInfoPanel extends JPanel
 		if (wavFrequencyLabel==null)
 		{
 			wavFrequencyLabel = new JLabel("Rate:");
-			wavFrequencyLabel.setFont(Helpers.DIALOG_FONT);
+			wavFrequencyLabel.setFont(Helpers.getDialogFont());
 		}
 		return wavFrequencyLabel;
 	}
@@ -162,7 +162,7 @@ public class WavInfoPanel extends JPanel
 			wavFrequency = new javax.swing.JTextField();
 			wavFrequency.setEditable(false);
 			wavFrequency.setColumns(5);
-			wavFrequency.setFont(Helpers.DIALOG_FONT);
+			wavFrequency.setFont(Helpers.getDialogFont());
 		}
 		return wavFrequency;
 	}
@@ -171,7 +171,7 @@ public class WavInfoPanel extends JPanel
 		if (wavSampleSizeInBitsLabel==null)
 		{
 			wavSampleSizeInBitsLabel = new JLabel("Bits:");
-			wavSampleSizeInBitsLabel.setFont(Helpers.DIALOG_FONT);
+			wavSampleSizeInBitsLabel.setFont(Helpers.getDialogFont());
 		}
 		return wavSampleSizeInBitsLabel;
 	}
@@ -182,7 +182,7 @@ public class WavInfoPanel extends JPanel
 			wavSampleSizeInBits = new javax.swing.JTextField();
 			wavSampleSizeInBits.setEditable(false);
 			wavSampleSizeInBits.setColumns(5);
-			wavSampleSizeInBits.setFont(Helpers.DIALOG_FONT);
+			wavSampleSizeInBits.setFont(Helpers.getDialogFont());
 		}
 		return wavSampleSizeInBits;
 	}
@@ -191,7 +191,7 @@ public class WavInfoPanel extends JPanel
 		if (wavChannelsLabel==null)
 		{
 			wavChannelsLabel = new JLabel("Channel:");
-			wavChannelsLabel.setFont(Helpers.DIALOG_FONT);
+			wavChannelsLabel.setFont(Helpers.getDialogFont());
 		}
 		return wavChannelsLabel;
 	}
@@ -202,7 +202,7 @@ public class WavInfoPanel extends JPanel
 			wavChannels = new javax.swing.JTextField();
 			wavChannels.setEditable(false);
 			wavChannels.setColumns(5);
-			wavChannels.setFont(Helpers.DIALOG_FONT);
+			wavChannels.setFont(Helpers.getDialogFont());
 		}
 		return wavChannels;
 	}
@@ -211,7 +211,7 @@ public class WavInfoPanel extends JPanel
 		if (wavEncodingLabel==null)
 		{
 			wavEncodingLabel = new JLabel("Encoding:");
-			wavEncodingLabel.setFont(Helpers.DIALOG_FONT);
+			wavEncodingLabel.setFont(Helpers.getDialogFont());
 		}
 		return wavEncodingLabel;
 	}
@@ -222,7 +222,7 @@ public class WavInfoPanel extends JPanel
 			wavEncoding = new javax.swing.JTextField();
 			wavEncoding.setEditable(false);
 			wavEncoding.setColumns(10);
-			wavEncoding.setFont(Helpers.DIALOG_FONT);
+			wavEncoding.setFont(Helpers.getDialogFont());
 		}
 		return wavEncoding;
 	}

@@ -132,7 +132,7 @@ public class FLACInfoPanel extends JPanel
 		if (flacNameLabel==null)
 		{
 			flacNameLabel = new JLabel("Flac file name:");
-			flacNameLabel.setFont(Helpers.DIALOG_FONT);
+			flacNameLabel.setFont(Helpers.getDialogFont());
 		}
 		return flacNameLabel;
 	}
@@ -142,7 +142,7 @@ public class FLACInfoPanel extends JPanel
 		{
 			flacName = new javax.swing.JTextField();
 			flacName.setEditable(false);
-			flacName.setFont(Helpers.DIALOG_FONT);
+			flacName.setFont(Helpers.getDialogFont());
 		}
 		return flacName;
 	}
@@ -151,7 +151,7 @@ public class FLACInfoPanel extends JPanel
 		if (flacDurationLabel==null)
 		{
 			flacDurationLabel = new JLabel("Duration:");
-			flacDurationLabel.setFont(Helpers.DIALOG_FONT);
+			flacDurationLabel.setFont(Helpers.getDialogFont());
 		}
 		return flacDurationLabel;
 	}
@@ -162,7 +162,7 @@ public class FLACInfoPanel extends JPanel
 			flacDuration = new javax.swing.JTextField();
 			flacDuration.setEditable(false);
 			flacDuration.setColumns(5);
-			flacDuration.setFont(Helpers.DIALOG_FONT);
+			flacDuration.setFont(Helpers.getDialogFont());
 		}
 		return flacDuration;
 	}
@@ -171,7 +171,7 @@ public class FLACInfoPanel extends JPanel
 		if (flacFrequencyLabel==null)
 		{
 			flacFrequencyLabel = new JLabel("Rate:");
-			flacFrequencyLabel.setFont(Helpers.DIALOG_FONT);
+			flacFrequencyLabel.setFont(Helpers.getDialogFont());
 		}
 		return flacFrequencyLabel;
 	}
@@ -182,7 +182,7 @@ public class FLACInfoPanel extends JPanel
 			flacFrequency = new javax.swing.JTextField();
 			flacFrequency.setEditable(false);
 			flacFrequency.setColumns(5);
-			flacFrequency.setFont(Helpers.DIALOG_FONT);
+			flacFrequency.setFont(Helpers.getDialogFont());
 		}
 		return flacFrequency;
 	}
@@ -191,7 +191,7 @@ public class FLACInfoPanel extends JPanel
 		if (flacSampleSizeInBitsLabel==null)
 		{
 			flacSampleSizeInBitsLabel = new JLabel("Bits:");
-			flacSampleSizeInBitsLabel.setFont(Helpers.DIALOG_FONT);
+			flacSampleSizeInBitsLabel.setFont(Helpers.getDialogFont());
 		}
 		return flacSampleSizeInBitsLabel;
 	}
@@ -202,7 +202,7 @@ public class FLACInfoPanel extends JPanel
 			flacSampleSizeInBits = new javax.swing.JTextField();
 			flacSampleSizeInBits.setEditable(false);
 			flacSampleSizeInBits.setColumns(5);
-			flacSampleSizeInBits.setFont(Helpers.DIALOG_FONT);
+			flacSampleSizeInBits.setFont(Helpers.getDialogFont());
 		}
 		return flacSampleSizeInBits;
 	}
@@ -211,7 +211,7 @@ public class FLACInfoPanel extends JPanel
 		if (flacChannelsLabel==null)
 		{
 			flacChannelsLabel = new JLabel("Channel:");
-			flacChannelsLabel.setFont(Helpers.DIALOG_FONT);
+			flacChannelsLabel.setFont(Helpers.getDialogFont());
 		}
 		return flacChannelsLabel;
 	}
@@ -222,7 +222,7 @@ public class FLACInfoPanel extends JPanel
 			flacChannels = new javax.swing.JTextField();
 			flacChannels.setEditable(false);
 			flacChannels.setColumns(5);
-			flacChannels.setFont(Helpers.DIALOG_FONT);
+			flacChannels.setFont(Helpers.getDialogFont());
 		}
 		return flacChannels;
 	}
@@ -231,7 +231,7 @@ public class FLACInfoPanel extends JPanel
 		if (flacEncodingLabel==null)
 		{
 			flacEncodingLabel = new JLabel("Encoding:");
-			flacEncodingLabel.setFont(Helpers.DIALOG_FONT);
+			flacEncodingLabel.setFont(Helpers.getDialogFont());
 		}
 		return flacEncodingLabel;
 	}
@@ -242,7 +242,7 @@ public class FLACInfoPanel extends JPanel
 			flacEncoding = new javax.swing.JTextField();
 			flacEncoding.setEditable(false);
 			flacEncoding.setColumns(10);
-			flacEncoding.setFont(Helpers.DIALOG_FONT);
+			flacEncoding.setFont(Helpers.getDialogFont());
 		}
 		return flacEncoding;
 	}
@@ -278,7 +278,7 @@ public class FLACInfoPanel extends JPanel
 			v1_L_Track = new javax.swing.JLabel();
 			v1_L_Track.setName("v1_L_Track");
 			v1_L_Track.setText("Track #");
-			v1_L_Track.setFont(Helpers.DIALOG_FONT);
+			v1_L_Track.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Track;
 	}
@@ -288,7 +288,7 @@ public class FLACInfoPanel extends JPanel
 		{
 			v1_Track = new javax.swing.JTextField();
 			v1_Track.setName("v1_Track");
-			v1_Track.setFont(Helpers.DIALOG_FONT);
+			v1_Track.setFont(Helpers.getDialogFont());
 			v1_Track.setEditable(true);
 		}
 		return v1_Track;
@@ -300,7 +300,7 @@ public class FLACInfoPanel extends JPanel
 			v1_L_Title = new javax.swing.JLabel();
 			v1_L_Title.setName("v1_L_Title");
 			v1_L_Title.setText("Title");
-			v1_L_Title.setFont(Helpers.DIALOG_FONT);
+			v1_L_Title.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Title;
 	}
@@ -310,7 +310,7 @@ public class FLACInfoPanel extends JPanel
 		{
 			v1_Title = new javax.swing.JTextField();
 			v1_Title.setName("v1_Title");
-			v1_Title.setFont(Helpers.DIALOG_FONT);
+			v1_Title.setFont(Helpers.getDialogFont());
 			v1_Title.setEditable(true);
 		}
 		return v1_Title;
@@ -322,7 +322,7 @@ public class FLACInfoPanel extends JPanel
 			v1_L_Artist = new javax.swing.JLabel();
 			v1_L_Artist.setName("v1_L_Artist");
 			v1_L_Artist.setText("Artist");
-			v1_L_Artist.setFont(Helpers.DIALOG_FONT);
+			v1_L_Artist.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Artist;
 	}
@@ -332,7 +332,7 @@ public class FLACInfoPanel extends JPanel
 		{
 			v1_Artist = new javax.swing.JTextField();
 			v1_Artist.setName("v1_Artist");
-			v1_Artist.setFont(Helpers.DIALOG_FONT);
+			v1_Artist.setFont(Helpers.getDialogFont());
 			v1_Artist.setEditable(true);
 		}
 		return v1_Artist;
@@ -344,7 +344,7 @@ public class FLACInfoPanel extends JPanel
 			v1_L_Album = new javax.swing.JLabel();
 			v1_L_Album.setName("v1_L_Album");
 			v1_L_Album.setText("Album");
-			v1_L_Album.setFont(Helpers.DIALOG_FONT);
+			v1_L_Album.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Album;
 	}
@@ -354,7 +354,7 @@ public class FLACInfoPanel extends JPanel
 		{
 			v1_Album = new javax.swing.JTextField();
 			v1_Album.setName("v1_Album");
-			v1_Album.setFont(Helpers.DIALOG_FONT);
+			v1_Album.setFont(Helpers.getDialogFont());
 			v1_Album.setEditable(true);
 		}
 		return v1_Album;
@@ -366,7 +366,7 @@ public class FLACInfoPanel extends JPanel
 			v1_L_Year = new javax.swing.JLabel();
 			v1_L_Year.setName("v1_L_Year");
 			v1_L_Year.setText("Year");
-			v1_L_Year.setFont(Helpers.DIALOG_FONT);
+			v1_L_Year.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Year;
 	}
@@ -376,7 +376,7 @@ public class FLACInfoPanel extends JPanel
 		{
 			v1_Year = new javax.swing.JTextField();
 			v1_Year.setName("v1_Year");
-			v1_Year.setFont(Helpers.DIALOG_FONT);
+			v1_Year.setFont(Helpers.getDialogFont());
 			v1_Year.setEditable(true);
 		}
 		return v1_Year;
@@ -388,7 +388,7 @@ public class FLACInfoPanel extends JPanel
 			v1_L_Genre = new javax.swing.JLabel();
 			v1_L_Genre.setName("v1_L_Genre");
 			v1_L_Genre.setText("Genre");
-			v1_L_Genre.setFont(Helpers.DIALOG_FONT);
+			v1_L_Genre.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Genre;
 	}
@@ -398,7 +398,7 @@ public class FLACInfoPanel extends JPanel
 		{
 			v1_Genre = new javax.swing.JComboBox<String>(NullsoftID3GenreTable.getGenres());
 			v1_Genre.setName("v1_Genre");
-			v1_Genre.setFont(Helpers.DIALOG_FONT);
+			v1_Genre.setFont(Helpers.getDialogFont());
 			v1_Genre.setEditable(true);
 		}
 		return v1_Genre;
@@ -410,7 +410,7 @@ public class FLACInfoPanel extends JPanel
 			v1_L_Comment = new javax.swing.JLabel();
 			v1_L_Comment.setName("v1_L_Comment");
 			v1_L_Comment.setText("Comment");
-			v1_L_Comment.setFont(Helpers.DIALOG_FONT);
+			v1_L_Comment.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Comment;
 	}
@@ -430,7 +430,7 @@ public class FLACInfoPanel extends JPanel
 		{
 			v1_Comment = new javax.swing.JTextArea();
 			v1_Comment.setName("v1_Comment");
-			v1_Comment.setFont(Helpers.DIALOG_FONT);
+			v1_Comment.setFont(Helpers.getDialogFont());
 			v1_Comment.setLineWrap(true);
 			v1_Comment.setWrapStyleWord(true);
 			v1_Comment.setEditable(true);

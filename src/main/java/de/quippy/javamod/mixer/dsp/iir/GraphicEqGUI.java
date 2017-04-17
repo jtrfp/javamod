@@ -136,7 +136,7 @@ public class GraphicEqGUI extends JPanel
 			selectionPanel = new JPanel();
 			selectionPanel.setName("selectionPanel");
 			selectionPanel.setLayout(new GridBagLayout());
-			selectionPanel.setBorder(new TitledBorder(null, "Selections", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.DIALOG_FONT, null));
+			selectionPanel.setBorder(new TitledBorder(null, "Selections", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.getDialogFont(), null));
 			selectionPanel.add(getEqualizerActive(),		Helpers.getGridBagConstraint(0, 0, 1, 1, java.awt.GridBagConstraints.NONE, java.awt.GridBagConstraints.WEST, 1.0, 0.0));
 			selectionPanel.add(getPresetSelectionLabel(),	Helpers.getGridBagConstraint(1, 0, 1, 1, java.awt.GridBagConstraints.NONE, java.awt.GridBagConstraints.EAST, 1.0, 0.0));
 			selectionPanel.add(getPresetSelection(),		Helpers.getGridBagConstraint(2, 0, 1, 0, java.awt.GridBagConstraints.HORIZONTAL, java.awt.GridBagConstraints.EAST, 1.0, 0.0));
@@ -150,7 +150,7 @@ public class GraphicEqGUI extends JPanel
 			equalizerActive = new javax.swing.JCheckBox();
 			equalizerActive.setName("equalizerActive");
 			equalizerActive.setText("activate equalizer");
-			equalizerActive.setFont(Helpers.DIALOG_FONT);
+			equalizerActive.setFont(Helpers.getDialogFont());
 			if (eq!=null) equalizerActive.setSelected(eq.isActive());
 			equalizerActive.addItemListener(new ItemListener()
 			{
@@ -170,7 +170,7 @@ public class GraphicEqGUI extends JPanel
 		if (presetSelectionLabel==null)
 		{
 			presetSelectionLabel = new JLabel("Presets:");
-			presetSelectionLabel.setFont(Helpers.DIALOG_FONT);
+			presetSelectionLabel.setFont(Helpers.getDialogFont());
 			presetSelectionLabel.setEnabled(presetsActive);
 		}
 		return presetSelectionLabel;
@@ -184,7 +184,7 @@ public class GraphicEqGUI extends JPanel
 
 			DefaultComboBoxModel<String> theModel = new DefaultComboBoxModel<String>(PRESET_NAMES);
 			presetSelection.setModel(theModel);
-			presetSelection.setFont(Helpers.DIALOG_FONT);
+			presetSelection.setFont(Helpers.getDialogFont());
 			presetSelection.setEnabled(presetsActive);
 			presetSelection.addItemListener(new ItemListener()
 			{
@@ -205,7 +205,7 @@ public class GraphicEqGUI extends JPanel
 		else 
 		if (value<(SLIDER_MIN / SHIFT_DB)) value = SLIDER_MIN / SHIFT_DB;
 		JSlider slider = new JSlider(JSlider.VERTICAL, SLIDER_MIN, SLIDER_MAX, (int)(value*SHIFT_DB));
-		slider.setFont(Helpers.DIALOG_FONT);
+		slider.setFont(Helpers.getDialogFont());
 		slider.setMinorTickSpacing(5*SHIFT_DB);
 		slider.setMajorTickSpacing(10*SHIFT_DB);
 		slider.setPaintTicks(true);
@@ -233,16 +233,16 @@ public class GraphicEqGUI extends JPanel
 			bandsPanel = new JPanel();
 			bandsPanel.setName("bandsPanel");
 			bandsPanel.setLayout(new GridBagLayout());
-			bandsPanel.setBorder(new TitledBorder(null, "Bands", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.DIALOG_FONT, null));
+			bandsPanel.setBorder(new TitledBorder(null, "Bands", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.getDialogFont(), null));
 
 			maxLabel = new JLabel("+" + Integer.toString(SLIDER_MAX/SHIFT_DB));
-			maxLabel.setFont(Helpers.DIALOG_FONT);
+			maxLabel.setFont(Helpers.getDialogFont());
 			bandsPanel.add(maxLabel,	Helpers.getGridBagConstraint(0, 0, 1, 1, java.awt.GridBagConstraints.NONE, java.awt.GridBagConstraints.NORTH, 0.0, 1.0));
 			centerLabel = new JLabel("0" + DEZIBEL);
-			centerLabel.setFont(Helpers.DIALOG_FONT);
+			centerLabel.setFont(Helpers.getDialogFont());
 			bandsPanel.add(centerLabel,	Helpers.getGridBagConstraint(0, 1, 1, 1, java.awt.GridBagConstraints.NONE, java.awt.GridBagConstraints.CENTER, 0.0, 1.0));
 			minLabel = new JLabel(Integer.toString(SLIDER_MIN/SHIFT_DB));
-			minLabel.setFont(Helpers.DIALOG_FONT);
+			minLabel.setFont(Helpers.getDialogFont());
 			bandsPanel.add(minLabel,	Helpers.getGridBagConstraint(0, 2, 1, 1, java.awt.GridBagConstraints.NONE, java.awt.GridBagConstraints.SOUTH, 0.0, 1.0));
 			
 			int bandCount = eq.getBandCount();
@@ -267,7 +267,7 @@ public class GraphicEqGUI extends JPanel
 				int centerFreq = eq.getCenterFreq(i);
 				String lableString = (centerFreq >= 1000)?Integer.toString(centerFreq/1000) + "k":Integer.toString(centerFreq);
 				slidersLable[i] = new JLabel(lableString);
-				slidersLable[i].setFont(Helpers.DIALOG_FONT);
+				slidersLable[i].setFont(Helpers.getDialogFont());
 				bandsPanel.add(sliders[i], 		Helpers.getGridBagConstraint(i+1, 0, 3, 1, java.awt.GridBagConstraints.VERTICAL, java.awt.GridBagConstraints.CENTER, 0.0, 1.0));
 				bandsPanel.add(slidersLable[i],	Helpers.getGridBagConstraint(i+1, 3, 1, 1, java.awt.GridBagConstraints.NONE, java.awt.GridBagConstraints.CENTER, 0.0, 0.0));
 			}
@@ -281,7 +281,7 @@ public class GraphicEqGUI extends JPanel
 			preAmpPanel = new JPanel();
 			preAmpPanel.setName("preAmpPanel");
 			preAmpPanel.setLayout(new GridBagLayout());
-			preAmpPanel.setBorder(new TitledBorder(null, "Pre Amp", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.DIALOG_FONT, null));
+			preAmpPanel.setBorder(new TitledBorder(null, "Pre Amp", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.getDialogFont(), null));
 			preAmpSlider = createDefaultSlider(eq.getPreAmpDB());
 			preAmpSlider.setName("PreAmp");
 			preAmpSlider.addChangeListener(new ChangeListener()
@@ -295,7 +295,7 @@ public class GraphicEqGUI extends JPanel
 				}
 			});
 			preAmpSliderLable = new JLabel("PreAmp");
-			preAmpSliderLable.setFont(Helpers.DIALOG_FONT);
+			preAmpSliderLable.setFont(Helpers.getDialogFont());
 			preAmpPanel.add(preAmpSlider, 		Helpers.getGridBagConstraint(0, 0, 1, 0, java.awt.GridBagConstraints.VERTICAL, java.awt.GridBagConstraints.CENTER, 0.0, 1.0));
 			preAmpPanel.add(preAmpSliderLable,	Helpers.getGridBagConstraint(0, 1, 1, 0, java.awt.GridBagConstraints.NONE, java.awt.GridBagConstraints.CENTER, 0.0, 0.0));
 		}

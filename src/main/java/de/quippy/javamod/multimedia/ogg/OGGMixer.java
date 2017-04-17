@@ -98,7 +98,7 @@ public class OGGMixer extends BasicMixer
 			if (inputStream!=null) try { inputStream.close(); inputStream = null; } catch (IOException e) { Log.error("IGNORED", e); }
 			
 			inputStream = new FileOrPackedInputStream(oggFileUrl);
-
+			
 			oggEOS = false;
 			decoderState = STATE_INITIAL;
 			
@@ -207,7 +207,14 @@ public class OGGMixer extends BasicMixer
 			switch (decoderState)
 			{
 				case STATE_EOS:
-					return -1;
+//					if (inputStream.available()>0) // Are we streaming?!
+//					{
+//						decoderState = STATE_INITIAL;
+//						OggMetaData metaData = new OggMetaData(inputStream);
+//						break;
+//					}
+//					else
+						return -1;
 				case STATE_INITIAL:
 					decoderState = doStateInitial();
 					break;

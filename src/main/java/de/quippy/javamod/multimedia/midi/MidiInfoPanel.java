@@ -102,7 +102,7 @@ public class MidiInfoPanel extends JPanel
 		if (midiNameLabel==null)
 		{
 			midiNameLabel = new JLabel("Midi file name:");
-			midiNameLabel.setFont(Helpers.DIALOG_FONT);
+			midiNameLabel.setFont(Helpers.getDialogFont());
 		}
 		return midiNameLabel;
 	}
@@ -111,7 +111,7 @@ public class MidiInfoPanel extends JPanel
 		if (midiDurationLabel==null)
 		{
 			midiDurationLabel = new JLabel("Duration:");
-			midiDurationLabel.setFont(Helpers.DIALOG_FONT);
+			midiDurationLabel.setFont(Helpers.getDialogFont());
 		}
 		return midiDurationLabel;
 	}
@@ -121,7 +121,7 @@ public class MidiInfoPanel extends JPanel
 		{
 			midiName = new javax.swing.JTextField();
 			midiName.setEditable(false);
-			midiName.setFont(Helpers.DIALOG_FONT);
+			midiName.setFont(Helpers.getDialogFont());
 		}
 		return midiName;
 	}
@@ -132,7 +132,7 @@ public class MidiInfoPanel extends JPanel
 			midiDuration = new javax.swing.JTextField();
 			midiDuration.setEditable(false);
 			midiDuration.setHorizontalAlignment(JTextField.LEADING);
-			midiDuration.setFont(Helpers.DIALOG_FONT);
+			midiDuration.setFont(Helpers.getDialogFont());
 			midiDuration.setColumns(5);
 		}
 		return midiDuration;
@@ -144,7 +144,7 @@ public class MidiInfoPanel extends JPanel
 			midiInfoLabel = new javax.swing.JLabel();
 			midiInfoLabel.setName("midiInfoLabel");
 			midiInfoLabel.setText("Midi information in File");
-			midiInfoLabel.setFont(Helpers.DIALOG_FONT);
+			midiInfoLabel.setFont(Helpers.getDialogFont());
 		}
 		return midiInfoLabel;
 	}
@@ -165,7 +165,7 @@ public class MidiInfoPanel extends JPanel
 			midiInfo = new javax.swing.JTextArea();
 			midiInfo.setName("midiInfo");
 			midiInfo.setEditable(false);
-			midiInfo.setFont(Helpers.DIALOG_FONT);
+			midiInfo.setFont(Helpers.getDialogFont());
 		}
 		return midiInfo;
 	}

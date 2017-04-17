@@ -125,7 +125,7 @@ public class SimpleTextViewerDialog extends JDialog
 			textArea = new javax.swing.JTextArea();
 			textArea.setName("modInfo_Instruments");
 			textArea.setEditable(false);
-			textArea.setFont(Helpers.TEXTAREA_FONT);
+			textArea.setFont(Helpers.getTextAreaFont());
 		}
 		return textArea;
 	}
@@ -137,7 +137,7 @@ public class SimpleTextViewerDialog extends JDialog
 	        closeButton.setMnemonic('C');
 	        closeButton.setText("Close");
 	        closeButton.setToolTipText("Close");
-	        closeButton.setFont(Helpers.DIALOG_FONT);
+	        closeButton.setFont(Helpers.getDialogFont());
 	        closeButton.addActionListener(new java.awt.event.ActionListener()
 	        {
 	            public void actionPerformed(java.awt.event.ActionEvent evt)

@@ -157,7 +157,7 @@ public class MP3InfoPanel extends JPanel
 			mp3Info_L_Filename = new javax.swing.JLabel();
 			mp3Info_L_Filename.setName("mp3Info_L_Filename");
 			mp3Info_L_Filename.setText("File");
-			mp3Info_L_Filename.setFont(Helpers.DIALOG_FONT);
+			mp3Info_L_Filename.setFont(Helpers.getDialogFont());
 		}
 		return mp3Info_L_Filename;
 	}
@@ -167,7 +167,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			mp3Info_Filename = new javax.swing.JTextField();
 			mp3Info_Filename.setName("mp3Info_Filename");
-			mp3Info_Filename.setFont(Helpers.DIALOG_FONT);
+			mp3Info_Filename.setFont(Helpers.getDialogFont());
 			mp3Info_Filename.setEditable(false);
 		}
 		return mp3Info_Filename;
@@ -179,7 +179,7 @@ public class MP3InfoPanel extends JPanel
 			mp3Info_L_ShortDescription = new javax.swing.JLabel();
 			mp3Info_L_ShortDescription.setName("mp3Info_L_ShortDescription");
 			mp3Info_L_ShortDescription.setText("Name");
-			mp3Info_L_ShortDescription.setFont(Helpers.DIALOG_FONT);
+			mp3Info_L_ShortDescription.setFont(Helpers.getDialogFont());
 		}
 		return mp3Info_L_ShortDescription;
 	}
@@ -189,7 +189,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			mp3Info_ShortDescription = new javax.swing.JTextField();
 			mp3Info_ShortDescription.setName("mp3Info_ShortDescription");
-			mp3Info_ShortDescription.setFont(Helpers.DIALOG_FONT);
+			mp3Info_ShortDescription.setFont(Helpers.getDialogFont());
 			mp3Info_ShortDescription.setEditable(false);
 		}
 		return mp3Info_ShortDescription;
@@ -236,7 +236,7 @@ public class MP3InfoPanel extends JPanel
 			v1_L_Track = new javax.swing.JLabel();
 			v1_L_Track.setName("v1_L_Track");
 			v1_L_Track.setText("Track #");
-			v1_L_Track.setFont(Helpers.DIALOG_FONT);
+			v1_L_Track.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Track;
 	}
@@ -246,7 +246,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v1_Track = new javax.swing.JTextField();
 			v1_Track.setName("v1_Track");
-			v1_Track.setFont(Helpers.DIALOG_FONT);
+			v1_Track.setFont(Helpers.getDialogFont());
 			v1_Track.setEditable(true);
 		}
 		return v1_Track;
@@ -258,7 +258,7 @@ public class MP3InfoPanel extends JPanel
 			v1_L_Title = new javax.swing.JLabel();
 			v1_L_Title.setName("v1_L_Title");
 			v1_L_Title.setText("Title");
-			v1_L_Title.setFont(Helpers.DIALOG_FONT);
+			v1_L_Title.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Title;
 	}
@@ -268,7 +268,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v1_Title = new javax.swing.JTextField();
 			v1_Title.setName("v1_Title");
-			v1_Title.setFont(Helpers.DIALOG_FONT);
+			v1_Title.setFont(Helpers.getDialogFont());
 			v1_Title.setEditable(true);
 		}
 		return v1_Title;
@@ -280,7 +280,7 @@ public class MP3InfoPanel extends JPanel
 			v1_L_Artist = new javax.swing.JLabel();
 			v1_L_Artist.setName("v1_L_Artist");
 			v1_L_Artist.setText("Artist");
-			v1_L_Artist.setFont(Helpers.DIALOG_FONT);
+			v1_L_Artist.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Artist;
 	}
@@ -290,7 +290,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v1_Artist = new javax.swing.JTextField();
 			v1_Artist.setName("v1_Artist");
-			v1_Artist.setFont(Helpers.DIALOG_FONT);
+			v1_Artist.setFont(Helpers.getDialogFont());
 			v1_Artist.setEditable(true);
 		}
 		return v1_Artist;
@@ -302,7 +302,7 @@ public class MP3InfoPanel extends JPanel
 			v1_L_Album = new javax.swing.JLabel();
 			v1_L_Album.setName("v1_L_Album");
 			v1_L_Album.setText("Album");
-			v1_L_Album.setFont(Helpers.DIALOG_FONT);
+			v1_L_Album.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Album;
 	}
@@ -312,7 +312,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v1_Album = new javax.swing.JTextField();
 			v1_Album.setName("v1_Album");
-			v1_Album.setFont(Helpers.DIALOG_FONT);
+			v1_Album.setFont(Helpers.getDialogFont());
 			v1_Album.setEditable(true);
 		}
 		return v1_Album;
@@ -324,7 +324,7 @@ public class MP3InfoPanel extends JPanel
 			v1_L_Year = new javax.swing.JLabel();
 			v1_L_Year.setName("v1_L_Year");
 			v1_L_Year.setText("Year");
-			v1_L_Year.setFont(Helpers.DIALOG_FONT);
+			v1_L_Year.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Year;
 	}
@@ -334,7 +334,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v1_Year = new javax.swing.JTextField();
 			v1_Year.setName("v1_Year");
-			v1_Year.setFont(Helpers.DIALOG_FONT);
+			v1_Year.setFont(Helpers.getDialogFont());
 			v1_Year.setEditable(true);
 		}
 		return v1_Year;
@@ -346,7 +346,7 @@ public class MP3InfoPanel extends JPanel
 			v1_L_Genre = new javax.swing.JLabel();
 			v1_L_Genre.setName("v1_L_Genre");
 			v1_L_Genre.setText("Genre");
-			v1_L_Genre.setFont(Helpers.DIALOG_FONT);
+			v1_L_Genre.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Genre;
 	}
@@ -356,7 +356,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v1_Genre = new javax.swing.JComboBox<String>(NullsoftID3GenreTable.getGenres());
 			v1_Genre.setName("v1_Genre");
-			v1_Genre.setFont(Helpers.DIALOG_FONT);
+			v1_Genre.setFont(Helpers.getDialogFont());
 			v1_Genre.setEditable(true);
 		}
 		return v1_Genre;
@@ -368,7 +368,7 @@ public class MP3InfoPanel extends JPanel
 			v1_L_Comment = new javax.swing.JLabel();
 			v1_L_Comment.setName("v1_L_Comment");
 			v1_L_Comment.setText("Comment");
-			v1_L_Comment.setFont(Helpers.DIALOG_FONT);
+			v1_L_Comment.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Comment;
 	}
@@ -388,7 +388,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v1_Comment = new javax.swing.JTextArea();
 			v1_Comment.setName("v1_Comment");
-			v1_Comment.setFont(Helpers.DIALOG_FONT);
+			v1_Comment.setFont(Helpers.getDialogFont());
 			v1_Comment.setLineWrap(true);
 			v1_Comment.setWrapStyleWord(true);
 			v1_Comment.setEditable(true);
@@ -444,7 +444,7 @@ public class MP3InfoPanel extends JPanel
 			v2_L_Track = new javax.swing.JLabel();
 			v2_L_Track.setName("v2_L_Track");
 			v2_L_Track.setText("Track #");
-			v2_L_Track.setFont(Helpers.DIALOG_FONT);
+			v2_L_Track.setFont(Helpers.getDialogFont());
 		}
 		return v2_L_Track;
 	}
@@ -454,7 +454,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v2_Track = new javax.swing.JTextField();
 			v2_Track.setName("v2_Track");
-			v2_Track.setFont(Helpers.DIALOG_FONT);
+			v2_Track.setFont(Helpers.getDialogFont());
 			v2_Track.setEditable(true);
 		}
 		return v2_Track;
@@ -466,7 +466,7 @@ public class MP3InfoPanel extends JPanel
 			v2_L_Disc = new javax.swing.JLabel();
 			v2_L_Disc.setName("v2_L_Disc");
 			v2_L_Disc.setText("Disc #");
-			v2_L_Disc.setFont(Helpers.DIALOG_FONT);
+			v2_L_Disc.setFont(Helpers.getDialogFont());
 		}
 		return v2_L_Disc;
 	}
@@ -476,7 +476,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v2_Disc = new javax.swing.JTextField();
 			v2_Disc.setName("v2_Disc");
-			v2_Disc.setFont(Helpers.DIALOG_FONT);
+			v2_Disc.setFont(Helpers.getDialogFont());
 			v2_Disc.setEditable(true);
 		}
 		return v2_Disc;
@@ -488,7 +488,7 @@ public class MP3InfoPanel extends JPanel
 			v2_L_Title = new javax.swing.JLabel();
 			v2_L_Title.setName("v2_L_Title");
 			v2_L_Title.setText("Title");
-			v2_L_Title.setFont(Helpers.DIALOG_FONT);
+			v2_L_Title.setFont(Helpers.getDialogFont());
 		}
 		return v2_L_Title;
 	}
@@ -498,7 +498,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v2_Title = new javax.swing.JTextField();
 			v2_Title.setName("v2_Title");
-			v2_Title.setFont(Helpers.DIALOG_FONT);
+			v2_Title.setFont(Helpers.getDialogFont());
 			v2_Title.setEditable(true);
 		}
 		return v2_Title;
@@ -510,7 +510,7 @@ public class MP3InfoPanel extends JPanel
 			v2_L_Artist = new javax.swing.JLabel();
 			v2_L_Artist.setName("v2_L_Artist");
 			v2_L_Artist.setText("Artist");
-			v2_L_Artist.setFont(Helpers.DIALOG_FONT);
+			v2_L_Artist.setFont(Helpers.getDialogFont());
 		}
 		return v2_L_Artist;
 	}
@@ -520,7 +520,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v2_Artist = new javax.swing.JTextField();
 			v2_Artist.setName("v2_Artist");
-			v2_Artist.setFont(Helpers.DIALOG_FONT);
+			v2_Artist.setFont(Helpers.getDialogFont());
 			v2_Artist.setEditable(true);
 		}
 		return v2_Artist;
@@ -532,7 +532,7 @@ public class MP3InfoPanel extends JPanel
 			v2_L_Album = new javax.swing.JLabel();
 			v2_L_Album.setName("v2_L_Album");
 			v2_L_Album.setText("Album");
-			v2_L_Album.setFont(Helpers.DIALOG_FONT);
+			v2_L_Album.setFont(Helpers.getDialogFont());
 		}
 		return v2_L_Album;
 	}
@@ -542,7 +542,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v2_Album = new javax.swing.JTextField();
 			v2_Album.setName("v2_Album");
-			v2_Album.setFont(Helpers.DIALOG_FONT);
+			v2_Album.setFont(Helpers.getDialogFont());
 			v2_Album.setEditable(true);
 		}
 		return v2_Album;
@@ -554,7 +554,7 @@ public class MP3InfoPanel extends JPanel
 			v2_L_Year = new javax.swing.JLabel();
 			v2_L_Year.setName("v2_L_Year");
 			v2_L_Year.setText("Year");
-			v2_L_Year.setFont(Helpers.DIALOG_FONT);
+			v2_L_Year.setFont(Helpers.getDialogFont());
 		}
 		return v2_L_Year;
 	}
@@ -564,7 +564,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v2_Year = new javax.swing.JTextField();
 			v2_Year.setName("v2_Year");
-			v2_Year.setFont(Helpers.DIALOG_FONT);
+			v2_Year.setFont(Helpers.getDialogFont());
 			v2_Year.setEditable(true);
 		}
 		return v2_Year;
@@ -576,7 +576,7 @@ public class MP3InfoPanel extends JPanel
 			v2_L_Genre = new javax.swing.JLabel();
 			v2_L_Genre.setName("v2_L_Genre");
 			v2_L_Genre.setText("Genre");
-			v2_L_Genre.setFont(Helpers.DIALOG_FONT);
+			v2_L_Genre.setFont(Helpers.getDialogFont());
 		}
 		return v2_L_Genre;
 	}
@@ -586,7 +586,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v2_Genre = new javax.swing.JComboBox<String>(NullsoftID3GenreTable.getGenres());
 			v2_Genre.setName("v2_Genre");
-			v2_Genre.setFont(Helpers.DIALOG_FONT);
+			v2_Genre.setFont(Helpers.getDialogFont());
 			v2_Genre.setEditable(true);
 		}
 		return v2_Genre;
@@ -598,7 +598,7 @@ public class MP3InfoPanel extends JPanel
 			v2_L_Comment = new javax.swing.JLabel();
 			v2_L_Comment.setName("v2_L_Comment");
 			v2_L_Comment.setText("Comment");
-			v2_L_Comment.setFont(Helpers.DIALOG_FONT);
+			v2_L_Comment.setFont(Helpers.getDialogFont());
 		}
 		return v2_L_Comment;
 	}
@@ -618,7 +618,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v2_Comment = new javax.swing.JTextArea();
 			v2_Comment.setName("v2_Comment");
-			v2_Comment.setFont(Helpers.DIALOG_FONT);
+			v2_Comment.setFont(Helpers.getDialogFont());
 			v2_Comment.setLineWrap(true);
 			v2_Comment.setWrapStyleWord(true);
 			v2_Comment.setEditable(true);
@@ -632,7 +632,7 @@ public class MP3InfoPanel extends JPanel
 			v2_L_AlbumArtist = new javax.swing.JLabel();
 			v2_L_AlbumArtist.setName("v2_L_AlbumArtist");
 			v2_L_AlbumArtist.setText("Album Artist");
-			v2_L_AlbumArtist.setFont(Helpers.DIALOG_FONT);
+			v2_L_AlbumArtist.setFont(Helpers.getDialogFont());
 		}
 		return v2_L_AlbumArtist;
 	}
@@ -642,7 +642,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v2_AlbumArtist = new javax.swing.JTextField();
 			v2_AlbumArtist.setName("v2_AlbumArtist");
-			v2_AlbumArtist.setFont(Helpers.DIALOG_FONT);
+			v2_AlbumArtist.setFont(Helpers.getDialogFont());
 			v2_AlbumArtist.setEditable(true);
 		}
 		return v2_AlbumArtist;
@@ -654,7 +654,7 @@ public class MP3InfoPanel extends JPanel
 			v2_L_Composer = new javax.swing.JLabel();
 			v2_L_Composer.setName("v2_L_Composer");
 			v2_L_Composer.setText("Composer");
-			v2_L_Composer.setFont(Helpers.DIALOG_FONT);
+			v2_L_Composer.setFont(Helpers.getDialogFont());
 		}
 		return v2_L_Composer;
 	}
@@ -664,7 +664,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v2_Composer = new javax.swing.JTextField();
 			v2_Composer.setName("v2_Composer");
-			v2_Composer.setFont(Helpers.DIALOG_FONT);
+			v2_Composer.setFont(Helpers.getDialogFont());
 			v2_Composer.setEditable(true);
 		}
 		return v2_Composer;
@@ -676,7 +676,7 @@ public class MP3InfoPanel extends JPanel
 			v2_L_Publisher = new javax.swing.JLabel();
 			v2_L_Publisher.setName("v2_L_Publisher");
 			v2_L_Publisher.setText("Publisher");
-			v2_L_Publisher.setFont(Helpers.DIALOG_FONT);
+			v2_L_Publisher.setFont(Helpers.getDialogFont());
 		}
 		return v2_L_Publisher;
 	}
@@ -686,7 +686,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v2_Publisher = new javax.swing.JTextField();
 			v2_Publisher.setName("v2_Publisher");
-			v2_Publisher.setFont(Helpers.DIALOG_FONT);
+			v2_Publisher.setFont(Helpers.getDialogFont());
 			v2_Publisher.setEditable(true);
 		}
 		return v2_Publisher;
@@ -698,7 +698,7 @@ public class MP3InfoPanel extends JPanel
 			v2_L_OrigArtist = new javax.swing.JLabel();
 			v2_L_OrigArtist.setName("v2_L_OrigArtist");
 			v2_L_OrigArtist.setText("Orig. Artist");
-			v2_L_OrigArtist.setFont(Helpers.DIALOG_FONT);
+			v2_L_OrigArtist.setFont(Helpers.getDialogFont());
 		}
 		return v2_L_OrigArtist;
 	}
@@ -708,7 +708,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v2_OrigArtist = new javax.swing.JTextField();
 			v2_OrigArtist.setName("v2_OrigArtist");
-			v2_OrigArtist.setFont(Helpers.DIALOG_FONT);
+			v2_OrigArtist.setFont(Helpers.getDialogFont());
 			v2_OrigArtist.setEditable(true);
 		}
 		return v2_OrigArtist;
@@ -720,7 +720,7 @@ public class MP3InfoPanel extends JPanel
 			v2_L_Copyright = new javax.swing.JLabel();
 			v2_L_Copyright.setName("v2_L_Copyright");
 			v2_L_Copyright.setText("Copyright");
-			v2_L_Copyright.setFont(Helpers.DIALOG_FONT);
+			v2_L_Copyright.setFont(Helpers.getDialogFont());
 		}
 		return v2_L_Copyright;
 	}
@@ -730,7 +730,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v2_Copyright = new javax.swing.JTextField();
 			v2_Copyright.setName("v2_Copyright");
-			v2_Copyright.setFont(Helpers.DIALOG_FONT);
+			v2_Copyright.setFont(Helpers.getDialogFont());
 			v2_Copyright.setEditable(true);
 		}
 		return v2_Copyright;
@@ -742,7 +742,7 @@ public class MP3InfoPanel extends JPanel
 			v2_L_URL = new javax.swing.JLabel();
 			v2_L_URL.setName("v2_L_URL");
 			v2_L_URL.setText("URL");
-			v2_L_URL.setFont(Helpers.DIALOG_FONT);
+			v2_L_URL.setFont(Helpers.getDialogFont());
 		}
 		return v2_L_URL;
 	}
@@ -752,7 +752,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v2_URL = new javax.swing.JTextField();
 			v2_URL.setName("v2_URL");
-			v2_URL.setFont(Helpers.DIALOG_FONT);
+			v2_URL.setFont(Helpers.getDialogFont());
 			v2_URL.setEditable(true);
 		}
 		return v2_URL;
@@ -764,7 +764,7 @@ public class MP3InfoPanel extends JPanel
 			v2_L_Encoded = new javax.swing.JLabel();
 			v2_L_Encoded.setName("v2_L_Encoded");
 			v2_L_Encoded.setText("Encoded");
-			v2_L_Encoded.setFont(Helpers.DIALOG_FONT);
+			v2_L_Encoded.setFont(Helpers.getDialogFont());
 		}
 		return v2_L_Encoded;
 	}
@@ -774,7 +774,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v2_Encoded = new javax.swing.JTextField();
 			v2_Encoded.setName("v2_Encoded");
-			v2_Encoded.setFont(Helpers.DIALOG_FONT);
+			v2_Encoded.setFont(Helpers.getDialogFont());
 			v2_Encoded.setEditable(true);
 		}
 		return v2_Encoded;
@@ -786,7 +786,7 @@ public class MP3InfoPanel extends JPanel
 			v2_L_BPM = new javax.swing.JLabel();
 			v2_L_BPM.setName("v2_L_BPM");
 			v2_L_BPM.setText("BPM");
-			v2_L_BPM.setFont(Helpers.DIALOG_FONT);
+			v2_L_BPM.setFont(Helpers.getDialogFont());
 		}
 		return v2_L_BPM;
 	}
@@ -796,7 +796,7 @@ public class MP3InfoPanel extends JPanel
 		{
 			v2_BPM = new javax.swing.JTextField();
 			v2_BPM.setName("v2_BPM");
-			v2_BPM.setFont(Helpers.DIALOG_FONT);
+			v2_BPM.setFont(Helpers.getDialogFont());
 			v2_BPM.setEditable(true);
 		}
 		return v2_BPM;

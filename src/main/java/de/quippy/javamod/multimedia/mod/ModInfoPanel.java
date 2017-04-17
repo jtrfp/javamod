@@ -104,7 +104,7 @@ public class ModInfoPanel extends JPanel
 			modInfo_L_Filename = new javax.swing.JLabel();
 			modInfo_L_Filename.setName("modInfo_L_Filename");
 			modInfo_L_Filename.setText("File");
-			modInfo_L_Filename.setFont(Helpers.DIALOG_FONT);
+			modInfo_L_Filename.setFont(Helpers.getDialogFont());
 		}
 		return modInfo_L_Filename;
 	}
@@ -114,7 +114,7 @@ public class ModInfoPanel extends JPanel
 		{
 			modInfo_Filename = new javax.swing.JTextField();
 			modInfo_Filename.setName("modInfo_Filename");
-			modInfo_Filename.setFont(Helpers.DIALOG_FONT);
+			modInfo_Filename.setFont(Helpers.getDialogFont());
 			modInfo_Filename.setEditable(false);
 		}
 		return modInfo_Filename;
@@ -126,7 +126,7 @@ public class ModInfoPanel extends JPanel
 			modInfo_L_Instruments = new javax.swing.JLabel();
 			modInfo_L_Instruments.setName("modInfo_L_Instruments");
 			modInfo_L_Instruments.setText("Instruments");
-			modInfo_L_Instruments.setFont(Helpers.DIALOG_FONT);
+			modInfo_L_Instruments.setFont(Helpers.getDialogFont());
 		}
 		return modInfo_L_Instruments;
 	}
@@ -147,7 +147,7 @@ public class ModInfoPanel extends JPanel
 			modInfo_Instruments = new javax.swing.JTextArea();
 			modInfo_Instruments.setName("modInfo_Instruments");
 			modInfo_Instruments.setEditable(false);
-			modInfo_Instruments.setFont(Helpers.TEXTAREA_FONT);
+			modInfo_Instruments.setFont(Helpers.getTextAreaFont());
 		}
 		return modInfo_Instruments;
 	}
@@ -158,7 +158,7 @@ public class ModInfoPanel extends JPanel
 			modInfo_L_Modname = new javax.swing.JLabel();
 			modInfo_L_Modname.setName("modInfo_L_Modname");
 			modInfo_L_Modname.setText("Name");
-			modInfo_L_Modname.setFont(Helpers.DIALOG_FONT);
+			modInfo_L_Modname.setFont(Helpers.getDialogFont());
 		}
 		return modInfo_L_Modname;
 	}
@@ -168,7 +168,7 @@ public class ModInfoPanel extends JPanel
 		{
 			modInfo_Modname = new javax.swing.JTextField();
 			modInfo_Modname.setName("modInfo_Modname");
-			modInfo_Modname.setFont(Helpers.DIALOG_FONT);
+			modInfo_Modname.setFont(Helpers.getDialogFont());
 			modInfo_Modname.setEditable(false);
 		}
 		return modInfo_Modname;
@@ -180,7 +180,7 @@ public class ModInfoPanel extends JPanel
 			modInfo_L_Trackername = new javax.swing.JLabel();
 			modInfo_L_Trackername.setName("modInfo_L_Trackername");
 			modInfo_L_Trackername.setText("Tracker");
-			modInfo_L_Trackername.setFont(Helpers.DIALOG_FONT);
+			modInfo_L_Trackername.setFont(Helpers.getDialogFont());
 		}
 		return modInfo_L_Trackername;
 	}
@@ -190,7 +190,7 @@ public class ModInfoPanel extends JPanel
 		{
 			modInfo_Trackername = new javax.swing.JTextField();
 			modInfo_Trackername.setName("modInfo_Trackername");
-			modInfo_Trackername.setFont(Helpers.DIALOG_FONT);
+			modInfo_Trackername.setFont(Helpers.getDialogFont());
 			modInfo_Trackername.setEditable(false);
 		}
 		return modInfo_Trackername;

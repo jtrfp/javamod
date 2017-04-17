@@ -135,7 +135,7 @@ public class MP3StreamInfoPanel extends JPanel
 			mp3Info_L_ServerType = new javax.swing.JLabel();
 			mp3Info_L_ServerType.setName("mp3Info_L_ServerType");
 			mp3Info_L_ServerType.setText("Server");
-			mp3Info_L_ServerType.setFont(Helpers.DIALOG_FONT);
+			mp3Info_L_ServerType.setFont(Helpers.getDialogFont());
 		}
 		return mp3Info_L_ServerType;
 	}
@@ -145,7 +145,7 @@ public class MP3StreamInfoPanel extends JPanel
 		{
 			mp3Info_ServerType = new javax.swing.JTextField();
 			mp3Info_ServerType.setName("mp3Info_ServerType");
-			mp3Info_ServerType.setFont(Helpers.DIALOG_FONT);
+			mp3Info_ServerType.setFont(Helpers.getDialogFont());
 			mp3Info_ServerType.setEditable(false);
 		}
 		return mp3Info_ServerType;
@@ -157,7 +157,7 @@ public class MP3StreamInfoPanel extends JPanel
 			mp3Info_L_ServerName = new javax.swing.JLabel();
 			mp3Info_L_ServerName.setName("mp3Info_L_ServerName");
 			mp3Info_L_ServerName.setText("Stream name");
-			mp3Info_L_ServerName.setFont(Helpers.DIALOG_FONT);
+			mp3Info_L_ServerName.setFont(Helpers.getDialogFont());
 		}
 		return mp3Info_L_ServerName;
 	}
@@ -167,7 +167,7 @@ public class MP3StreamInfoPanel extends JPanel
 		{
 			mp3Info_ServerName = new javax.swing.JTextField();
 			mp3Info_ServerName.setName("mp3Info_ServerName");
-			mp3Info_ServerName.setFont(Helpers.DIALOG_FONT);
+			mp3Info_ServerName.setFont(Helpers.getDialogFont());
 			mp3Info_ServerName.setEditable(false);
 		}
 		return mp3Info_ServerName;
@@ -179,7 +179,7 @@ public class MP3StreamInfoPanel extends JPanel
 			mp3Info_L_ServerGenre = new javax.swing.JLabel();
 			mp3Info_L_ServerGenre.setName("mp3Info_L_ServerGenre");
 			mp3Info_L_ServerGenre.setText("Genre");
-			mp3Info_L_ServerGenre.setFont(Helpers.DIALOG_FONT);
+			mp3Info_L_ServerGenre.setFont(Helpers.getDialogFont());
 		}
 		return mp3Info_L_ServerGenre;
 	}
@@ -189,7 +189,7 @@ public class MP3StreamInfoPanel extends JPanel
 		{
 			mp3Info_ServerGenre = new javax.swing.JTextField();
 			mp3Info_ServerGenre.setName("mp3Info_ServerGenre");
-			mp3Info_ServerGenre.setFont(Helpers.DIALOG_FONT);
+			mp3Info_ServerGenre.setFont(Helpers.getDialogFont());
 			mp3Info_ServerGenre.setEditable(false);
 		}
 		return mp3Info_ServerGenre;
@@ -201,7 +201,7 @@ public class MP3StreamInfoPanel extends JPanel
 			mp3Info_L_URL = new javax.swing.JLabel();
 			mp3Info_L_URL.setName("mp3Info_L_URL");
 			mp3Info_L_URL.setText("URL");
-			mp3Info_L_URL.setFont(Helpers.DIALOG_FONT);
+			mp3Info_L_URL.setFont(Helpers.getDialogFont());
 		}
 		return mp3Info_L_URL;
 	}
@@ -211,7 +211,7 @@ public class MP3StreamInfoPanel extends JPanel
 		{
 			mp3Info_URL = new javax.swing.JTextField();
 			mp3Info_URL.setName("mp3Info_URL");
-			mp3Info_URL.setFont(Helpers.DIALOG_FONT);
+			mp3Info_URL.setFont(Helpers.getDialogFont());
 			mp3Info_URL.setEditable(false);
 		}
 		return mp3Info_URL;
@@ -223,7 +223,7 @@ public class MP3StreamInfoPanel extends JPanel
 			mp3Info_L_ContentType = new javax.swing.JLabel();
 			mp3Info_L_ContentType.setName("mp3Info_L_ContentType");
 			mp3Info_L_ContentType.setText("Content Type");
-			mp3Info_L_ContentType.setFont(Helpers.DIALOG_FONT);
+			mp3Info_L_ContentType.setFont(Helpers.getDialogFont());
 		}
 		return mp3Info_L_ContentType;
 	}
@@ -233,7 +233,7 @@ public class MP3StreamInfoPanel extends JPanel
 		{
 			mp3Info_ContentType = new javax.swing.JTextField();
 			mp3Info_ContentType.setName("mp3Info_ContentType");
-			mp3Info_ContentType.setFont(Helpers.DIALOG_FONT);
+			mp3Info_ContentType.setFont(Helpers.getDialogFont());
 			mp3Info_ContentType.setEditable(false);
 		}
 		return mp3Info_ContentType;
@@ -245,7 +245,7 @@ public class MP3StreamInfoPanel extends JPanel
 			mp3Info_L_MetaDataInt = new javax.swing.JLabel();
 			mp3Info_L_MetaDataInt.setName("mp3Info_L_MetaDataInt");
 			mp3Info_L_MetaDataInt.setText("Metadata interval");
-			mp3Info_L_MetaDataInt.setFont(Helpers.DIALOG_FONT);
+			mp3Info_L_MetaDataInt.setFont(Helpers.getDialogFont());
 		}
 		return mp3Info_L_MetaDataInt;
 	}
@@ -255,7 +255,7 @@ public class MP3StreamInfoPanel extends JPanel
 		{
 			mp3Info_MetaDataInt = new javax.swing.JTextField();
 			mp3Info_MetaDataInt.setName("mp3Info_MetaDataInt");
-			mp3Info_MetaDataInt.setFont(Helpers.DIALOG_FONT);
+			mp3Info_MetaDataInt.setFont(Helpers.getDialogFont());
 			mp3Info_MetaDataInt.setEditable(false);
 		}
 		return mp3Info_MetaDataInt;
@@ -267,7 +267,7 @@ public class MP3StreamInfoPanel extends JPanel
 			mp3Info_L_BandWidth = new javax.swing.JLabel();
 			mp3Info_L_BandWidth.setName("mp3Info_L_BandWidth");
 			mp3Info_L_BandWidth.setText("kb/s");
-			mp3Info_L_BandWidth.setFont(Helpers.DIALOG_FONT);
+			mp3Info_L_BandWidth.setFont(Helpers.getDialogFont());
 		}
 		return mp3Info_L_BandWidth;
 	}
@@ -277,7 +277,7 @@ public class MP3StreamInfoPanel extends JPanel
 		{
 			mp3Info_BandWidth = new javax.swing.JTextField();
 			mp3Info_BandWidth.setName("mp3Info_BandWidth");
-			mp3Info_BandWidth.setFont(Helpers.DIALOG_FONT);
+			mp3Info_BandWidth.setFont(Helpers.getDialogFont());
 			mp3Info_BandWidth.setEditable(false);
 		}
 		return mp3Info_BandWidth;
@@ -289,7 +289,7 @@ public class MP3StreamInfoPanel extends JPanel
 			mp3Info_L_ShortDescription = new javax.swing.JLabel();
 			mp3Info_L_ShortDescription.setName("mp3Info_L_ShortDescription");
 			mp3Info_L_ShortDescription.setText("Current title");
-			mp3Info_L_ShortDescription.setFont(Helpers.DIALOG_FONT);
+			mp3Info_L_ShortDescription.setFont(Helpers.getDialogFont());
 		}
 		return mp3Info_L_ShortDescription;
 	}
@@ -299,7 +299,7 @@ public class MP3StreamInfoPanel extends JPanel
 		{
 			mp3Info_ShortDescription = new javax.swing.JTextField();
 			mp3Info_ShortDescription.setName("mp3Info_ShortDescription");
-			mp3Info_ShortDescription.setFont(Helpers.DIALOG_FONT);
+			mp3Info_ShortDescription.setFont(Helpers.getDialogFont());
 			mp3Info_ShortDescription.setEditable(false);
 		}
 		return mp3Info_ShortDescription;

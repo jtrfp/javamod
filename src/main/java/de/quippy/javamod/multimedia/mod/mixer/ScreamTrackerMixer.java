@@ -115,7 +115,7 @@ public class ScreamTrackerMixer extends BasicModMixer
 				currentTick = currentTempo = aktMemo.effektParam;
 				break;
 			case 0x02 :			// Pattern position jump
-				patternPosJumpPatternIndex = aktMemo.effektParam;
+				patternBreakJumpPatternIndex = aktMemo.effektParam;
 				break;
 			case 0x03 :			// Pattern break
 				patternBreakRowIndex = ((aktMemo.effektParam>>4)*10)+(aktMemo.effektParam&0x0F);
@@ -312,34 +312,30 @@ public class ScreamTrackerMixer extends BasicModMixer
 						aktMemo.highSampleOffset = aktMemo.effektParam&0x0F;
 						break;
 					case 0xB :	// JumpLoop
-						// this effekt is simulated through pattern break and position jump
 						if (effektOpEx==0) // Set a marker for loop
 						{
-							jumpLoopPatternIndex = currentArrangement; // position jump index!
-							jumpLoopPatternRow = currentRow;
-							jumpLoopPositionSet = true;
+							aktMemo.jumpLoopPatternRow = currentRow;
+							aktMemo.jumpLoopPositionSet = true;
 							break;
 						}
-						if (jumpLoopRepeatCount==-1) // was not set!
+						if (aktMemo.jumpLoopRepeatCount==-1) // was not set!
 						{
-							jumpLoopRepeatCount=effektOpEx;
-							if (!jumpLoopPositionSet) // if not set, pattern Start is default!
+							aktMemo.jumpLoopRepeatCount=effektOpEx;
+							if (!aktMemo.jumpLoopPositionSet) // if not set, pattern Start is default!
 							{
-								jumpLoopPatternIndex = currentArrangement; // position jump index!
-								jumpLoopPatternRow = 0;
-								jumpLoopPositionSet = true;
+								aktMemo.jumpLoopPatternRow = 0;
+								aktMemo.jumpLoopPositionSet = true;
 							}
 						}
-						if (jumpLoopRepeatCount>0 && jumpLoopPositionSet)
+						if (aktMemo.jumpLoopRepeatCount>0 && aktMemo.jumpLoopPositionSet)
 						{
-							jumpLoopRepeatCount--;
-							patternBreakRowIndex = jumpLoopPatternRow;
-							patternPosJumpPatternIndex = jumpLoopPatternIndex;
+							aktMemo.jumpLoopRepeatCount--;
+							patternJumpPatternIndex = aktMemo.jumpLoopPatternRow;
 						}
 						else
 						{
-							jumpLoopPositionSet = false;
-							jumpLoopRepeatCount = -1;
+							aktMemo.jumpLoopPositionSet = false;
+							aktMemo.jumpLoopRepeatCount = -1;
 						}
 						break;
 					case 0xC :	// Note Cut

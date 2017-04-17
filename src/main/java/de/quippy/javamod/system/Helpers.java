@@ -52,6 +52,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.DataLine;
 import javax.sound.sampled.Line;
 import javax.sound.sampled.Mixer;
+import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 
 import de.quippy.javamod.main.gui.components.SimpleProgessDialog;
@@ -73,7 +74,7 @@ public class Helpers
 	}
 
 	/** Version Information */
-	public static final String VERSION = "V2.2";
+	public static final String VERSION = "V2.3";
 	public static final String PROGRAM = "Java Mod Player";
 	public static final String FULLVERSION = PROGRAM+' '+VERSION;
 	public static final String COPYRIGHT = "© by Daniel Becker since 2006";
@@ -88,15 +89,15 @@ public class Helpers
 	public static final String CODING_M3U = "ISO-8859-1";
 	public static String currentCoding = CODING_GUI;
 
-	public static final Font DIALOG_FONT = new Font(Font.DIALOG, Font.PLAIN, 10);
 	public static final String DEFAULTFONTPATH = "/de/quippy/javamod/main/gui/ressources/lucon.ttf";
+	private static Font DIALOG_FONT = null;
+    private static Font TEXTAREA_FONT = null;
 
 	/** 
 	 * HomeDir is the property of the system value "user.home".
 	 * With Applets this value is unreadable (SecurityException)
 	 */
 	public static String HOMEDIR;
-    public static Font TEXTAREA_FONT = new Font("Monospaced", Font.PLAIN, 10);
 	static
 	{
 		try
@@ -115,17 +116,43 @@ public class Helpers
 				HOMEDIR = "";
 			}
 		}
-		try
+	}
+	
+	/**
+	 * Retrieve the current TextArea Font
+	 * @return
+	 * @since 12.01.2016
+	 */
+	public static Font getTextAreaFont()
+	{
+		if (TEXTAREA_FONT==null)
 		{
-			InputStream is = Helpers.class.getResourceAsStream(Helpers.DEFAULTFONTPATH);
-			Font font = Font.createFont(Font.TRUETYPE_FONT, is);
-			TEXTAREA_FONT = font.deriveFont(10.0f);
+			try
+			{
+				InputStream is = Helpers.class.getResourceAsStream(Helpers.DEFAULTFONTPATH);
+				Font font = Font.createFont(Font.TRUETYPE_FONT, is);
+				TEXTAREA_FONT = font.deriveFont(10.0f);
+			}
+			catch (Exception ex)
+			{
+				Log.error("Could not load font!", ex);
+				TEXTAREA_FONT = new Font(Font.MONOSPACED, Font.PLAIN, 10);
+			}
 		}
-		catch (Exception ex)
+		return TEXTAREA_FONT;
+	}
+	/**
+	 * Retrieve the current Dialog Font
+	 * @return
+	 * @since 12.01.2016
+	 */
+	public static Font getDialogFont()
+	{
+		if (DIALOG_FONT==null)
 		{
-			Log.error("Could not load font!", ex);
-			TEXTAREA_FONT = new Font(Font.MONOSPACED, Font.PLAIN, 10);
+			DIALOG_FONT = new Font(Font.DIALOG, Font.PLAIN, 10);
 		}
+		return DIALOG_FONT;
 	}
 	
 	/**
@@ -982,7 +1009,7 @@ public class Helpers
 //	 * @param isBigEndian
 //	 * @param isSigned
 //	 */
-//	public static void convertAnyToSigned24Bit(final int [] result, int pos, final byte [] buffer, int ox, final int anz, final int channels, final int sampleSizeInBits, final boolean isBigEndian, final boolean isSigned)
+//	public static void convertAnyToSigned24Bit(final int [] result, final int pos, final byte [] buffer, final int ox, final int anz, final int channels, final int sampleSizeInBits, final boolean isBigEndian, final boolean isSigned)
 //	{
 //		final int bytesPerChannel = sampleSizeInBits>>3;
 //		final int anzSamples = anz/(bytesPerChannel*channels);
@@ -1027,11 +1054,24 @@ public class Helpers
 	 * @param weighty
 	 * @return
 	 */
-	public static java.awt.GridBagConstraints getGridBagConstraint(int gridx, int gridy, int gridheight, int gridwidth, int fill, int anchor, double weightx, double weighty)
+	public static java.awt.GridBagConstraints getGridBagConstraint(final int gridx, final int gridy, final int gridheight, final int gridwidth, final int fill, final int anchor, final double weightx, final double weighty)
 	{
 		return getGridBagConstraint(gridx, gridy, gridheight, gridwidth, fill, anchor, weightx, weighty, new java.awt.Insets(4, 4, 4, 4));
 	}
-	public static java.awt.GridBagConstraints getGridBagConstraint(int gridx, int gridy, int gridheight, int gridwidth, int fill, int anchor, double weightx, double weighty, Insets insets)
+	/**
+	 * @since 22.07.2015
+	 * @param gridx
+	 * @param gridy
+	 * @param gridheight
+	 * @param gridwidth
+	 * @param fill
+	 * @param anchor
+	 * @param weightx
+	 * @param weighty
+	 * @param insets
+	 * @return
+	 */
+	public static java.awt.GridBagConstraints getGridBagConstraint(final int gridx, final int gridy, final int gridheight, final int gridwidth, final int fill, final int anchor, final double weightx, final double weighty, final Insets insets)
 	{
 		java.awt.GridBagConstraints constraints = new java.awt.GridBagConstraints();
 		constraints.gridx = gridx; 
@@ -1075,7 +1115,7 @@ public class Helpers
 	 * @param basePanel
 	 * @param myListener
 	 */
-	public static void registerDropListener(ArrayList<DropTarget> list, Container basePanel, PlaylistDropListener myListener)
+	public static void registerDropListener(final ArrayList<DropTarget> list, final Container basePanel, final PlaylistDropListener myListener)
 	{
 		list.add(new DropTarget(basePanel, DnDConstants.ACTION_COPY_OR_MOVE, myListener));
 	    
@@ -1121,7 +1161,7 @@ public class Helpers
 	 * @return
 	 * @since 14.02.2012
 	 */
-	public static URL createURLfromFile(File file)
+	public static URL createURLfromFile(final File file)
 	{
 		if (!file.exists())
 		{
@@ -1157,7 +1197,7 @@ public class Helpers
 	 * @param urlLine
 	 * @return a URL in correct form
 	 */
-	public static URL createURLfromString(String urlLine)
+	public static URL createURLfromString(final String urlLine)
 	{
 		try
 		{
@@ -1184,11 +1224,22 @@ public class Helpers
 			return null;
 		}
 	}
-	public static String createStringFomURL(URL url)
+	/**
+	 * @since 22.07.2015
+	 * @param url
+	 * @return
+	 */
+	public static String createStringFomURL(final URL url)
 	{
+		if (url==null) return "";
 		return createStringFromURLString(url.toExternalForm());
 	}
-	public static String createStringFromURLString(String url)
+	/**
+	 * @since 22.07.2015
+	 * @param url
+	 * @return
+	 */
+	public static String createStringFromURLString(final String url)
 	{
 		try
 		{
@@ -1196,25 +1247,51 @@ public class Helpers
 		}
 		catch (UnsupportedEncodingException ex)
 		{
+			Log.error("Helpers::createStringRomURLString", ex);
 		}
 		return url;
 	}
-	public static String getFileNameFrom(String fileName)
+	/**
+	 * @since 22.07.2015
+	 * @param fileName
+	 * @return
+	 */
+	public static String getFileNameFrom(final String fileName)
 	{
 		return fileName.substring(fileName.lastIndexOf('/') + 1);
 	}
-	public static String getFileNameFromURL(URL url)
+	/**
+	 * @since 22.07.2015
+	 * @param url
+	 * @return
+	 */
+	public static String getFileNameFromURL(final URL url)
 	{
 		return getFileNameFrom(createStringFomURL(url));
 	}
-	public static String getExtensionFrom(String fileName)
+	/**
+	 * @since 22.07.2015
+	 * @param fileName
+	 * @return
+	 */
+	public static String getExtensionFrom(final String fileName)
 	{
 		return fileName.substring(fileName.lastIndexOf('.')+1).toLowerCase();
 	}
-	public static String getExtensionFromURL(URL url)
+	/**
+	 * @since 22.07.2015
+	 * @param url
+	 * @return
+	 */
+	public static String getExtensionFromURL(final URL url)
 	{
 		return getExtensionFrom(createStringFomURL(url));
 	}
+	/**
+	 * @since 22.07.2015
+	 * @param fileName
+	 * @return
+	 */
 	public static String getPreceedingExtensionFrom(String fileName)
 	{
 		fileName = fileName.substring(fileName.lastIndexOf('\\')+1);
@@ -1225,17 +1302,29 @@ public class Helpers
 		else
 			return "";
 	}
+	/**
+	 * @since 22.07.2015
+	 * @param url
+	 * @return
+	 */
 	public static String getPreceedingExtensionFromURL(URL url)
 	{
 		return getPreceedingExtensionFrom(url.getPath());
 	}
-	public static String createLocalFileStringFromURL(URL url, boolean stayLocal)
+	/**
+	 * @since 22.07.2015
+	 * @param url
+	 * @param stayLocal
+	 * @return
+	 */
+	public static String createLocalFileStringFromURL(final URL url, final boolean stayLocal)
 	{
-		String suggestedPath = "/";
+		String suggestedPath = createStringFomURL(url);
 		
 		if (url!=null)
 		{
-			if (url.getProtocol().equalsIgnoreCase("file"))
+			final String proto = url.getProtocol().toLowerCase();
+			if (proto.equals("file"))
 			{
 				try
 				{
@@ -1247,25 +1336,26 @@ public class Helpers
 				}
 			}
 			else
+			if (!proto.equals("http") && stayLocal)
 			{
-				if (!stayLocal)
-					suggestedPath = createStringFomURL(url);
-				else
+				try
 				{
-					try
-					{
-						suggestedPath = HOMEDIR + getFileNameFromURL(url);
-					}
-					catch (SecurityException ex)
-					{
-						Log.error("Helpers::createLocalFileStringFromURL", ex);
-					}
+					suggestedPath = HOMEDIR + getFileNameFromURL(url);
+				}
+				catch (SecurityException ex)
+				{
+					Log.error("Helpers::createLocalFileStringFromURL", ex);
 				}
 			}
 		}
 		return suggestedPath;
 	}
-	public static boolean urlExists(URL url)
+	/**
+	 * @since 22.07.2015
+	 * @param url
+	 * @return
+	 */
+	public static boolean urlExists(final URL url)
 	{
 		if (url==null) return false;
 		
@@ -1309,7 +1399,7 @@ public class Helpers
 	 * @param url
 	 * @return
 	 */
-	public static boolean urlExists(String url)
+	public static boolean urlExists(final String url)
 	{
 		return urlExists(Helpers.createURLfromString(url));
 	}
@@ -1386,7 +1476,7 @@ public class Helpers
 	 * @return
 	 * @since 23.03.2011
 	 */
-	public static FileChooserResult selectFileNameFor(final java.awt.Component parent, final String showDir, final String action, final FileFilter[] filter, final int type, final boolean multiFileSelection)
+	public static FileChooserResult selectFileNameFor(final java.awt.Component parent, final String showDir, final String action, final FileFilter[] filter, final int type, final boolean multiFileSelection, final boolean directoryOnly)
 	{
 		String dir = (showDir==null)?HOMEDIR:showDir;
 		// Try to work with URL - map "dir" to a local File
@@ -1409,12 +1499,18 @@ public class Helpers
 	    final javax.swing.JFileChooser chooser = new javax.swing.JFileChooser(theDirectory);
 	    if (filter!=null)
 	    {
+			chooser.setAcceptAllFileFilterUsed(false);
 	    	for (int i=filter.length-1; i>=0; i--) // count downwards 'cause the last one is the default
 	    		chooser.addChoosableFileFilter(filter[i]);
 	    }
+		else
+		{
+			chooser.setAcceptAllFileFilterUsed(true);
+		}
 	    if (!theFile.isDirectory()) chooser.setSelectedFile(theFile);
 	    chooser.setApproveButtonText(action);
 	    chooser.setMultiSelectionEnabled(multiFileSelection);
+		chooser.setFileSelectionMode((directoryOnly)?JFileChooser.DIRECTORIES_ONLY:JFileChooser.FILES_ONLY);
 	    final int result = (type==0)?chooser.showOpenDialog(parent):chooser.showSaveDialog(parent);
 
 	    if (result==javax.swing.JFileChooser.APPROVE_OPTION)

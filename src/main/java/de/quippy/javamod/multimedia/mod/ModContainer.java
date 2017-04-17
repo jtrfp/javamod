@@ -54,14 +54,14 @@ public class ModContainer extends MultimediaContainer
 	public static final String DEFAULT_NOISEREDUCTION = "false";
 	public static final String DEFAULT_MEGABASS = "false";
 	public static final String DEFAULT_NOLOOPS = "0";
-	public static final String DEFAULT_SAMPLERATE = "44100";
+	public static final String DEFAULT_SAMPLERATE = "48000";
    	public static final String DEFAULT_CHANNEL = "2";
 	public static final String DEFAULT_BITSPERSAMPLE = "16";
 	public static final String DEFAULT_MSBUFFERSIZE = "250";
 	public static final String DEFAULT_INTERPOLATION_INDEX = "1";
 	public static final String[] SAMPLERATE = new String[]
 	{
-		"8000", "11025", "16000", "22050", "33075", DEFAULT_SAMPLERATE, "48000", "96000"
+		"8000", "11025", "16000", "22050", "33075", "44100", DEFAULT_SAMPLERATE, "96000", "192000"
 	};
 	public static final String[] CHANNELS = new String[]
    	{

@@ -75,7 +75,7 @@ public class EditPlaylistEntry extends JDialog
 
         jLabel1 = new javax.swing.JLabel();
         jLabel1.setText("Old:");
-        jLabel1.setFont(Helpers.DIALOG_FONT);
+        jLabel1.setFont(Helpers.getDialogFont());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = GridBagConstraints.WEST;
         gridBagConstraints.gridx = 0;
@@ -85,7 +85,7 @@ public class EditPlaylistEntry extends JDialog
         getContentPane().add(jLabel1, gridBagConstraints);
         
         textField1 = new javax.swing.JTextField();
-        textField1.setFont(Helpers.DIALOG_FONT);
+        textField1.setFont(Helpers.getDialogFont());
         textField1.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = GridBagConstraints.WEST;
@@ -100,7 +100,7 @@ public class EditPlaylistEntry extends JDialog
 
         jLabel2 = new javax.swing.JLabel();
         jLabel2.setText("New:");
-        jLabel2.setFont(Helpers.DIALOG_FONT);
+        jLabel2.setFont(Helpers.getDialogFont());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = GridBagConstraints.WEST;
         gridBagConstraints.gridx = 0;
@@ -110,7 +110,7 @@ public class EditPlaylistEntry extends JDialog
         getContentPane().add(jLabel2, gridBagConstraints);
 
         textField2 = new javax.swing.JTextField();
-        textField2.setFont(Helpers.DIALOG_FONT);
+        textField2.setFont(Helpers.getDialogFont());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = GridBagConstraints.WEST;
         gridBagConstraints.gridx = 1;
@@ -125,7 +125,7 @@ public class EditPlaylistEntry extends JDialog
         searchButton.setMnemonic('s');
         searchButton.setText("...");
         searchButton.setToolTipText("Search");
-        searchButton.setFont(Helpers.DIALOG_FONT);
+        searchButton.setFont(Helpers.getDialogFont());
         searchButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -146,7 +146,7 @@ public class EditPlaylistEntry extends JDialog
         openButton = new javax.swing.JButton();
         openButton.setMnemonic('O');
         openButton.setText("OK");
-        openButton.setFont(Helpers.DIALOG_FONT);
+        openButton.setFont(Helpers.getDialogFont());
         openButton.setToolTipText("OK");
         openButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -161,7 +161,7 @@ public class EditPlaylistEntry extends JDialog
         cancelButton.setMnemonic('C');
         cancelButton.setText("Cancel");
         cancelButton.setToolTipText("Cancel");
-        cancelButton.setFont(Helpers.DIALOG_FONT);
+        cancelButton.setFont(Helpers.getDialogFont());
         cancelButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -228,7 +228,7 @@ public class EditPlaylistEntry extends JDialog
     private void doSearch()
     {
 		FileFilter [] filter = new FileFilter[] { new FileChooserFilter(MultimediaContainerManager.getSupportedFileExtensions(), "All playable files") };
-		FileChooserResult selectedFile = Helpers.selectFileNameFor(this, textField2.getText(), "Select file", filter, 0, false);
+		FileChooserResult selectedFile = Helpers.selectFileNameFor(this, textField2.getText(), "Select file", filter, 0, false, false);
 		if (selectedFile!=null)
 		{
 			File f = selectedFile.getSelectedFile();

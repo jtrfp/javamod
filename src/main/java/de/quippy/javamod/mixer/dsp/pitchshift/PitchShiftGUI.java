@@ -111,7 +111,7 @@ public class PitchShiftGUI extends JPanel
 		if (presetOversamplingLabel==null)
 		{
 			presetOversamplingLabel = new JLabel("Oversampling:");
-			presetOversamplingLabel.setFont(Helpers.DIALOG_FONT);
+			presetOversamplingLabel.setFont(Helpers.getDialogFont());
 		}
 		return presetOversamplingLabel;
 	}
@@ -124,7 +124,7 @@ public class PitchShiftGUI extends JPanel
 
 			DefaultComboBoxModel<Integer> theModel = new DefaultComboBoxModel<Integer>(OVERSAMPLINGS);
 			presetOversampling.setModel(theModel);
-			presetOversampling.setFont(Helpers.DIALOG_FONT);
+			presetOversampling.setFont(Helpers.getDialogFont());
 			presetOversampling.setEditable(true);
 			if (thePitcher!=null) presetOversampling.setSelectedItem(Integer.valueOf(thePitcher.getFFTOversampling()));
 			presetOversampling.addItemListener(new ItemListener()
@@ -146,7 +146,7 @@ public class PitchShiftGUI extends JPanel
 		if (presetFrameSizeLabel==null)
 		{
 			presetFrameSizeLabel = new JLabel("Frame size:");
-			presetFrameSizeLabel.setFont(Helpers.DIALOG_FONT);
+			presetFrameSizeLabel.setFont(Helpers.getDialogFont());
 		}
 		return presetFrameSizeLabel;
 	}
@@ -159,7 +159,7 @@ public class PitchShiftGUI extends JPanel
 
 			DefaultComboBoxModel<Integer> theModel = new DefaultComboBoxModel<Integer>(FRAMESIZE);
 			presetFrameSize.setModel(theModel);
-			presetFrameSize.setFont(Helpers.DIALOG_FONT);
+			presetFrameSize.setFont(Helpers.getDialogFont());
 			presetFrameSize.setEditable(true);
 			if (thePitcher!=null) presetFrameSize.setSelectedItem(Integer.valueOf(thePitcher.getFftFrameSize()));
 			presetFrameSize.addItemListener(new ItemListener()
@@ -183,7 +183,7 @@ public class PitchShiftGUI extends JPanel
 			pitchShiftPanel = new JPanel();
 			pitchShiftPanel.setName("pitchShiftPanel");
 			pitchShiftPanel.setLayout(new java.awt.GridBagLayout());
-			pitchShiftPanel.setBorder(new TitledBorder(null, "Pitch", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.DIALOG_FONT, null));
+			pitchShiftPanel.setBorder(new TitledBorder(null, "Pitch", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.getDialogFont(), null));
 			pitchShiftPanel.add(getPitchSlider(),		Helpers.getGridBagConstraint(0, 0, 1, 3, java.awt.GridBagConstraints.HORIZONTAL, java.awt.GridBagConstraints.NORTH, 1.0, 0.0));
 			pitchShiftPanel.add(getPitchMinLabel(),		Helpers.getGridBagConstraint(0, 1, 1, 1, java.awt.GridBagConstraints.NONE, java.awt.GridBagConstraints.WEST, 1.0, 0.0));
 			pitchShiftPanel.add(getPitchCenterLabel(),	Helpers.getGridBagConstraint(1, 1, 1, 1, java.awt.GridBagConstraints.NONE, java.awt.GridBagConstraints.CENTER, 1.0, 0.0));
@@ -198,7 +198,7 @@ public class PitchShiftGUI extends JPanel
 			scaleShiftPanel = new JPanel();
 			scaleShiftPanel.setName("scaleShiftPanel");
 			scaleShiftPanel.setLayout(new java.awt.GridBagLayout());
-			scaleShiftPanel.setBorder(new TitledBorder(null, "Tempo", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.DIALOG_FONT, null));
+			scaleShiftPanel.setBorder(new TitledBorder(null, "Tempo", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.getDialogFont(), null));
 			scaleShiftPanel.add(getScaleSlider(),		Helpers.getGridBagConstraint(0, 0, 1, 3, java.awt.GridBagConstraints.HORIZONTAL, java.awt.GridBagConstraints.NORTH, 1.0, 0.0));
 			scaleShiftPanel.add(getScaleMinLabel(),		Helpers.getGridBagConstraint(0, 1, 1, 1, java.awt.GridBagConstraints.NONE, java.awt.GridBagConstraints.WEST, 1.0, 0.0));
 			scaleShiftPanel.add(getScaleCenterLabel(),	Helpers.getGridBagConstraint(1, 1, 1, 1, java.awt.GridBagConstraints.NONE, java.awt.GridBagConstraints.CENTER, 1.0, 0.0));
@@ -213,7 +213,7 @@ public class PitchShiftGUI extends JPanel
 			pitchShiftActive = new javax.swing.JCheckBox();
 			pitchShiftActive.setName("pitchShiftActive");
 			pitchShiftActive.setText("activate pitch shift");
-			pitchShiftActive.setFont(Helpers.DIALOG_FONT);
+			pitchShiftActive.setFont(Helpers.getDialogFont());
 			if (thePitcher!=null) pitchShiftActive.setSelected(thePitcher.isActive());
 			pitchShiftActive.addItemListener(new ItemListener()
 			{
@@ -237,7 +237,7 @@ public class PitchShiftGUI extends JPanel
 			else 
 			if (value<SLIDER_MIN) value = SLIDER_MIN;
 			pitchSlider = new JSlider(JSlider.HORIZONTAL, SLIDER_MIN, SLIDER_MAX, value);
-			pitchSlider.setFont(Helpers.DIALOG_FONT);
+			pitchSlider.setFont(Helpers.getDialogFont());
 			pitchSlider.setMinorTickSpacing((int)(0.1f*SHIFT));
 			pitchSlider.setMajorTickSpacing((int)(0.5f*SHIFT));
 			pitchSlider.setPaintTicks(true);
@@ -273,7 +273,7 @@ public class PitchShiftGUI extends JPanel
 		if (pitchMinLable==null)
 		{
 			pitchMinLable = new JLabel("one octave down");
-			pitchMinLable.setFont(Helpers.DIALOG_FONT);
+			pitchMinLable.setFont(Helpers.getDialogFont());
 		}
 		return pitchMinLable;
 	}
@@ -282,7 +282,7 @@ public class PitchShiftGUI extends JPanel
 		if (pitchCenterLable==null)
 		{
 			pitchCenterLable = new JLabel("center");
-			pitchCenterLable.setFont(Helpers.DIALOG_FONT);
+			pitchCenterLable.setFont(Helpers.getDialogFont());
 		}
 		return pitchCenterLable;
 	}
@@ -291,7 +291,7 @@ public class PitchShiftGUI extends JPanel
 		if (pitchMaxLable==null)
 		{
 			pitchMaxLable = new JLabel("one octave up");
-			pitchMaxLable.setFont(Helpers.DIALOG_FONT);
+			pitchMaxLable.setFont(Helpers.getDialogFont());
 		}
 		return pitchMaxLable;
 	}
@@ -304,7 +304,7 @@ public class PitchShiftGUI extends JPanel
 			else 
 			if (value<SLIDER_MIN) value = SLIDER_MIN;
 			sampleScaleSlider = new JSlider(JSlider.HORIZONTAL, SLIDER_MIN, SLIDER_MAX, value);
-			sampleScaleSlider.setFont(Helpers.DIALOG_FONT);
+			sampleScaleSlider.setFont(Helpers.getDialogFont());
 			sampleScaleSlider.setMinorTickSpacing((int)(0.1f*SHIFT));
 			sampleScaleSlider.setMajorTickSpacing((int)(0.5f*SHIFT));
 			sampleScaleSlider.setPaintTicks(true);
@@ -341,7 +341,7 @@ public class PitchShiftGUI extends JPanel
 		if (scaleMinLable==null)
 		{
 			scaleMinLable = new JLabel("half speed");
-			scaleMinLable.setFont(Helpers.DIALOG_FONT);
+			scaleMinLable.setFont(Helpers.getDialogFont());
 		}
 		return scaleMinLable;
 	}
@@ -350,7 +350,7 @@ public class PitchShiftGUI extends JPanel
 		if (scaleCenterLable==null)
 		{
 			scaleCenterLable = new JLabel("normal");
-			scaleCenterLable.setFont(Helpers.DIALOG_FONT);
+			scaleCenterLable.setFont(Helpers.getDialogFont());
 		}
 		return scaleCenterLable;
 	}
@@ -359,7 +359,7 @@ public class PitchShiftGUI extends JPanel
 		if (scaleMaxLable==null)
 		{
 			scaleMaxLable = new JLabel("double speed");
-			scaleMaxLable.setFont(Helpers.DIALOG_FONT);
+			scaleMaxLable.setFont(Helpers.getDialogFont());
 		}
 		return scaleMaxLable;
 	}

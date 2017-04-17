@@ -257,6 +257,7 @@ public class JOrbisComment
 			}
 			state.oy.wrote(bytes);
 		}
+//		int repeat = 0;
 		while (true)
 		{
 			/*int result = */state.oy.pageout(og);
@@ -267,6 +268,12 @@ public class JOrbisComment
 				state.pcmLength = og.granulepos();
 				break;
 			}
+//			repeat++;
+//			if (repeat>16) // Stop just once - no endless loop!! 
+//			{
+//				state.pcmLength = og.granulepos();
+//				break;
+//			}
 			try
 			{
 				bytes = state.in.read(buffer, index, CHUNKSIZE);

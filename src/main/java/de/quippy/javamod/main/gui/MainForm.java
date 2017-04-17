@@ -29,6 +29,7 @@ import java.awt.MenuItem;
 import java.awt.PopupMenu;
 import java.awt.SystemTray;
 import java.awt.TrayIcon;
+import java.awt.Window;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.event.ActionEvent;
@@ -284,6 +285,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 	private float currentBalance; /* -1.0 - 1.0 */
 	
 	private ArrayList<URL> lastLoaded;
+	private ArrayList<Window> windows;
 	
 	private boolean inExportMode;
 	
@@ -549,14 +551,6 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 		
 		ArrayList<FileFilter> chooserFilterArray = new ArrayList<FileFilter>(extensionMap.size() + 1);
 
-		// Add playlist files to full list of supported file extensions
-		String [] containerExtensions = MultimediaContainerManager.getSupportedFileExtensions();
-		String [] fullSupportedExtensions = new String[containerExtensions.length + PlayList.SUPPORTEDPLAYLISTS.length];
-		System.arraycopy(PlayList.SUPPORTEDPLAYLISTS, 0, fullSupportedExtensions, 0, PlayList.SUPPORTEDPLAYLISTS.length);
-		System.arraycopy(containerExtensions, 0, fullSupportedExtensions, PlayList.SUPPORTEDPLAYLISTS.length, containerExtensions.length);
-		chooserFilterArray.add(new FileChooserFilter(fullSupportedExtensions, "All playable files"));
-//		chooserFilterArray.add(new FileChooserFilter("*", "All files"));
-		
 		// add all single file extensions grouped by container
 		Set<String> containerNameSet = extensionMap.keySet();
 		Iterator<String> containerNameIterator = containerNameSet.iterator();
@@ -577,6 +571,15 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 		}
 		// now add playlist as group of files
 		chooserFilterArray.add(PlayList.PLAYLIST_FILE_FILTER);
+
+		// now add all playable files at the last step (container extensions and playlist files)
+		String [] containerExtensions = MultimediaContainerManager.getSupportedFileExtensions();
+		String [] fullSupportedExtensions = new String[containerExtensions.length + PlayList.SUPPORTEDPLAYLISTS.length];
+		System.arraycopy(PlayList.SUPPORTEDPLAYLISTS, 0, fullSupportedExtensions, 0, PlayList.SUPPORTEDPLAYLISTS.length);
+		System.arraycopy(containerExtensions, 0, fullSupportedExtensions, PlayList.SUPPORTEDPLAYLISTS.length, containerExtensions.length);
+		chooserFilterArray.add(new FileChooserFilter(fullSupportedExtensions, "All playable files"));
+		// add default "all files" - WE DO NOT DO THAT ANYMORE ;)
+//		chooserFilterArray.add(new FileChooserFilter("*", "All files"));
 		
 		fileFilterLoad = new FileFilter[chooserFilterArray.size()];
 		chooserFilterArray.toArray(fileFilterLoad);
@@ -655,8 +658,6 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 		});
 	    setSize(mainDialogSize);
 		setPreferredSize(mainDialogSize);
-
-		updateLookAndFeel(uiClassName);
 		
 		setJMenuBar(getBaseMenuBar());
 		setContentPane(getBaseContentPane());
@@ -664,6 +665,10 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 		// Volumecontrol by mousewheel:
 	    addMouseWheelListener(new MouseWheelVolumeControl());
 	    pack();
+
+		createAllWindows();
+		
+		updateLookAndFeel(uiClassName);
 
 		if (mainDialogLocation == null || (mainDialogLocation.getX()==-1 || mainDialogLocation.getY()==-1))
 			mainDialogLocation = Helpers.getFrameCenteredLocation(this, null); 
@@ -678,11 +683,22 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 	    Helpers.registerDropListener(dropTargetList, this, myListener);
 	    
 		MultimediaContainerManager.addMultimediaContainerEventListener(this);
-
-	    createFileFilter();
+		
+		createFileFilter();
 
 	    currentContainer = null; //set Back to null!
 	    showMessage("Ready...");
+	}
+	private void createAllWindows()
+	{
+		windows = new ArrayList<Window>();
+		windows.add(getJavaModAbout());
+		windows.add(getModInfoDialog());
+		windows.add(getPlayerSetUpDialog());
+		windows.add(getURLDialog());
+		windows.add(getShowVersion_Text());
+		windows.add(getPlaylistDialog());
+		windows.add(getEffectDialog());
 	}
 	/**
 	 * @param dtde
@@ -756,14 +772,11 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 	{
 	    setLookAndFeel(lookAndFeelClassName);
 	    MultimediaContainerManager.updateLookAndFeel();
-		javax.swing.SwingUtilities.updateComponentTreeUI(this); pack();
-	    javax.swing.SwingUtilities.updateComponentTreeUI(getJavaModAbout()); getJavaModAbout().pack();
-	    javax.swing.SwingUtilities.updateComponentTreeUI(getModInfoDialog()); getModInfoDialog().pack();
-	    javax.swing.SwingUtilities.updateComponentTreeUI(getPlayerSetUpDialog()); getPlayerSetUpDialog().pack();
-	    javax.swing.SwingUtilities.updateComponentTreeUI(getURLDialog()); getURLDialog().pack();
-	    javax.swing.SwingUtilities.updateComponentTreeUI(getShowVersion_Text()); getShowVersion_Text().pack();
-	    javax.swing.SwingUtilities.updateComponentTreeUI(getPlaylistDialog()); getPlaylistDialog().pack();
-	    javax.swing.SwingUtilities.updateComponentTreeUI(getEffectDialog()); getEffectDialog().pack();
+		SwingUtilities.updateComponentTreeUI(this); pack();
+	    for (Window window : windows)
+	    {
+			SwingUtilities.updateComponentTreeUI(window); window.pack();
+	    }
 	}
 	private void changeInfoPane()
 	{
@@ -823,7 +836,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			menu_File.setName("menu_File");
 			menu_File.setMnemonic('f');
 			menu_File.setText("File");
-			menu_File.setFont(Helpers.DIALOG_FONT);
+			menu_File.setFont(Helpers.getDialogFont());
 			menu_File.add(getMenu_File_openMod());
 			menu_File.add(getMenu_File_openURL());
 			menu_File.add(getMenu_File_exportWave());
@@ -842,7 +855,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			menu_View.setName("menu_View");
 			menu_View.setMnemonic('v');
 			menu_View.setText("View");
-			menu_View.setFont(Helpers.DIALOG_FONT);
+			menu_View.setFont(Helpers.getDialogFont());
 			menu_View.add(getMenu_View_Info());
 			menu_View.add(getMenu_View_Setup());
 			menu_View.add(getMenu_View_Playlist());
@@ -860,7 +873,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			menu_LookAndFeel.setName("menu_LookAndFeel");
 			menu_LookAndFeel.setMnemonic('l');
 			menu_LookAndFeel.setText("Look&Feel");
-			menu_LookAndFeel.setFont(Helpers.DIALOG_FONT);
+			menu_LookAndFeel.setFont(Helpers.getDialogFont());
 			
 			String currentUIClassName = javax.swing.UIManager.getLookAndFeel().getClass().getName();
 			javax.swing.UIManager.LookAndFeelInfo [] lookAndFeels = getInstalledLookAndFeels();
@@ -870,7 +883,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 				menu_LookAndFeel_Items[i] = new javax.swing.JCheckBoxMenuItem();
 				menu_LookAndFeel_Items[i].setName("newMenuItem_"+i);
 				menu_LookAndFeel_Items[i].setText(lookAndFeels[i].getName());
-				menu_LookAndFeel_Items[i].setFont(Helpers.DIALOG_FONT);
+				menu_LookAndFeel_Items[i].setFont(Helpers.getDialogFont());
 				menu_LookAndFeel_Items[i].setToolTipText("Change to " + lookAndFeels[i].getName() + " look and feel");
 				String uiClassName = lookAndFeels[i].getClassName();
 				if (uiClassName.equals(currentUIClassName)) menu_LookAndFeel_Items[i].setSelected(true);
@@ -889,7 +902,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			menu_Help.setName("menu_Help");
 			menu_Help.setMnemonic('h');
 			menu_Help.setText("Help");
-			menu_Help.setFont(Helpers.DIALOG_FONT);
+			menu_Help.setFont(Helpers.getDialogFont());
 			menu_Help.add(getMenu_Help_CheckUpdate());
 			menu_Help.add(getMenu_Help_ShowVersionHistory());
 			menu_Help.add(new javax.swing.JSeparator());
@@ -905,7 +918,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			menu_File_openMod.setName("menu_File_openMod");
 			menu_File_openMod.setMnemonic('o');
 			menu_File_openMod.setText("Open Sound File...");
-			menu_File_openMod.setFont(Helpers.DIALOG_FONT);
+			menu_File_openMod.setFont(Helpers.getDialogFont());
 			menu_File_openMod.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -924,7 +937,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			menu_File_openURL.setName("menu_File_openURL");
 			menu_File_openURL.setMnemonic('u');
 			menu_File_openURL.setText("Open an URL...");
-			menu_File_openURL.setFont(Helpers.DIALOG_FONT);
+			menu_File_openURL.setFont(Helpers.getDialogFont());
 			menu_File_openURL.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -943,7 +956,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			menu_File_exportWave.setName("menu_File_exportWave");
 			menu_File_exportWave.setMnemonic('e');
 			menu_File_exportWave.setText("Export to wave...");
-			menu_File_exportWave.setFont(Helpers.DIALOG_FONT);
+			menu_File_exportWave.setFont(Helpers.getDialogFont());
 			menu_File_exportWave.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -962,7 +975,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			menu_File_RecentFiles.setName("menu_File_RecentFiles");
 			menu_File_RecentFiles.setMnemonic('r');
 			menu_File_RecentFiles.setText("Recent files");
-			menu_File_RecentFiles.setFont(Helpers.DIALOG_FONT);
+			menu_File_RecentFiles.setFont(Helpers.getDialogFont());
 			
 			createRecentFileMenuItems();
 		}
@@ -995,7 +1008,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 				javax.swing.JMenuItem lastLoadURL = new javax.swing.JMenuItem();
 				lastLoadURL.setName("menu_File_RecentFiles_File"+i);
 				lastLoadURL.setText(((index<10)?"  ":"") + (index++) + " " + displayName);
-				lastLoadURL.setFont(Helpers.DIALOG_FONT);
+				lastLoadURL.setFont(Helpers.getDialogFont());
 				lastLoadURL.setToolTipText(element.toString());
 				lastLoadURL.addActionListener(new ActionListener()
 				{
@@ -1024,7 +1037,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			menu_File_Close.setName("menu_File_Close");
 			menu_File_Close.setMnemonic('c');
 			menu_File_Close.setText("Close");
-			menu_File_Close.setFont(Helpers.DIALOG_FONT);
+			menu_File_Close.setFont(Helpers.getDialogFont());
 			menu_File_Close.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -1043,7 +1056,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			menu_View_Info.setName("menu_View_Info");
 			menu_View_Info.setMnemonic('p');
 			menu_View_Info.setText("Properties...");
-			menu_View_Info.setFont(Helpers.DIALOG_FONT);
+			menu_View_Info.setFont(Helpers.getDialogFont());
 			menu_View_Info.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -1062,7 +1075,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			menu_View_Setup.setName("menu_View_Setup");
 			menu_View_Setup.setMnemonic('s');
 			menu_View_Setup.setText("Setup...");
-			menu_View_Setup.setFont(Helpers.DIALOG_FONT);
+			menu_View_Setup.setFont(Helpers.getDialogFont());
 			menu_View_Setup.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -1081,7 +1094,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			menu_View_Playlist.setName("menu_View_Playlist");
 			menu_View_Playlist.setMnemonic('p');
 			menu_View_Playlist.setText("Playlist...");
-			menu_View_Playlist.setFont(Helpers.DIALOG_FONT);
+			menu_View_Playlist.setFont(Helpers.getDialogFont());
 			menu_View_Playlist.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -1100,7 +1113,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			menu_View_GraphicEQ.setName("menu_View_GraphicEQ");
 			menu_View_GraphicEQ.setMnemonic('e');
 			menu_View_GraphicEQ.setText("Effect...");
-			menu_View_GraphicEQ.setFont(Helpers.DIALOG_FONT);
+			menu_View_GraphicEQ.setFont(Helpers.getDialogFont());
 			menu_View_GraphicEQ.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -1119,7 +1132,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			menu_View_UseSystemTray.setName("menu_View_UseSystemTray");
 			menu_View_UseSystemTray.setMnemonic('t');
 			menu_View_UseSystemTray.setText("Use system tray");
-			menu_View_UseSystemTray.setFont(Helpers.DIALOG_FONT);
+			menu_View_UseSystemTray.setFont(Helpers.getDialogFont());
 			menu_View_UseSystemTray.setEnabled(SystemTray.isSupported());
 			menu_View_UseSystemTray.setSelected(useSystemTray);
 			menu_View_UseSystemTray.addActionListener(new ActionListener()
@@ -1141,7 +1154,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			menu_Help_CheckUpdate.setName("menu_Help_CheckUpdate");
 			menu_Help_CheckUpdate.setMnemonic('c');
 			menu_Help_CheckUpdate.setText("Check for update...");
-			menu_Help_CheckUpdate.setFont(Helpers.DIALOG_FONT);
+			menu_Help_CheckUpdate.setFont(Helpers.getDialogFont());
 			menu_Help_CheckUpdate.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -1160,7 +1173,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			menu_Help_ShowVersionHistory.setName("menu_Help_showVersionHistory");
 			menu_Help_ShowVersionHistory.setMnemonic('s');
 			menu_Help_ShowVersionHistory.setText("Show version history...");
-			menu_Help_ShowVersionHistory.setFont(Helpers.DIALOG_FONT);
+			menu_Help_ShowVersionHistory.setFont(Helpers.getDialogFont());
 			menu_Help_ShowVersionHistory.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -1181,7 +1194,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			menu_Help_About.setName("menu_Help_About");
 			menu_Help_About.setMnemonic('a');
 			menu_Help_About.setText("About...");
-			menu_Help_About.setFont(Helpers.DIALOG_FONT);
+			menu_Help_About.setFont(Helpers.getDialogFont());
 			menu_Help_About.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -1197,7 +1210,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 		if (aboutItem==null)
 		{
 			aboutItem = new MenuItem("About");
-			aboutItem.setFont(Helpers.DIALOG_FONT);
+			aboutItem.setFont(Helpers.getDialogFont());
 			aboutItem.addActionListener(new ActionListener()
 			{
 				@Override
@@ -1214,7 +1227,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 		if (playItem==null)
 		{
 			playItem = new MenuItem("Play");
-			playItem.setFont(Helpers.DIALOG_FONT);
+			playItem.setFont(Helpers.getDialogFont());
 			playItem.addActionListener(new ActionListener()
 			{
 				@Override
@@ -1231,7 +1244,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 		if (pauseItem==null)
 		{
 			pauseItem = new MenuItem("Pause");
-			pauseItem.setFont(Helpers.DIALOG_FONT);
+			pauseItem.setFont(Helpers.getDialogFont());
 			pauseItem.addActionListener(new ActionListener()
 			{
 				@Override
@@ -1248,7 +1261,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 		if (stopItem==null)
 		{
 			stopItem = new MenuItem("Stop");
-			stopItem.setFont(Helpers.DIALOG_FONT);
+			stopItem.setFont(Helpers.getDialogFont());
 			stopItem.addActionListener(new ActionListener()
 			{
 				@Override
@@ -1265,7 +1278,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 		if (prevItem==null)
 		{
 			prevItem = new MenuItem("Previous");
-			prevItem.setFont(Helpers.DIALOG_FONT);
+			prevItem.setFont(Helpers.getDialogFont());
 			prevItem.addActionListener(new ActionListener()
 			{
 				@Override
@@ -1282,7 +1295,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 		if (nextItem==null)
 		{
 			nextItem = new MenuItem("Next");
-			nextItem.setFont(Helpers.DIALOG_FONT);
+			nextItem.setFont(Helpers.getDialogFont());
 			nextItem.addActionListener(new ActionListener()
 			{
 				@Override
@@ -1299,7 +1312,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 		if (closeItem==null)
 		{
 			closeItem = new MenuItem("Close");
-			closeItem.setFont(Helpers.DIALOG_FONT);
+			closeItem.setFont(Helpers.getDialogFont());
 			closeItem.addActionListener(new ActionListener()
 			{
 				@Override
@@ -1392,7 +1405,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			messages = new javax.swing.JTextField();
 			messages.setName("messages");
 			messages.setEditable(false);
-			messages.setFont(Helpers.DIALOG_FONT);
+			messages.setFont(Helpers.getDialogFont());
 		}
 		return messages;
 	}
@@ -1487,7 +1500,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			modInfoPane = new javax.swing.JPanel();
 			modInfoPane.setName("ModInfoPane");
 			modInfoPane.setLayout(new java.awt.BorderLayout());
-			modInfoPane.setBorder(new TitledBorder(null, "Multimedia File Info", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.DIALOG_FONT, null));
+			modInfoPane.setBorder(new TitledBorder(null, "Multimedia File Info", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.getDialogFont(), null));
 			changeInfoPane();
 		}
 		return modInfoPane;
@@ -1515,7 +1528,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			playlistPane = new javax.swing.JPanel();
 			playlistPane.setName("playlistPane");
 			playlistPane.setLayout(new java.awt.BorderLayout());
-			playlistPane.setBorder(new TitledBorder(null, "Playlist", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.DIALOG_FONT, null));
+			playlistPane.setBorder(new TitledBorder(null, "Playlist", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.getDialogFont(), null));
 			playlistPane.add(getPlaylistGUI());
 		}
 		return playlistPane;
@@ -1536,7 +1549,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			effectPane = new javax.swing.JPanel();
 			effectPane.setName("effectPane");
 			effectPane.setLayout(new java.awt.BorderLayout());
-			effectPane.setBorder(new TitledBorder(null, "Effects", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.DIALOG_FONT, null));
+			effectPane.setBorder(new TitledBorder(null, "Effects", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.getDialogFont(), null));
 			effectPane.add(getEffectsPanel());
 		}
 		return effectPane;
@@ -1577,7 +1590,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			playerSetUpPane = new javax.swing.JPanel();
 			playerSetUpPane.setName("playerSetUpPane");
 			playerSetUpPane.setLayout(new java.awt.BorderLayout());
-			playerSetUpPane.setBorder(new TitledBorder(null, "Mixer Control", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.DIALOG_FONT, null));
+			playerSetUpPane.setBorder(new TitledBorder(null, "Mixer Control", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.getDialogFont(), null));
 			playerSetUpPane.add(getPlayerConfigPanel());
 			changeConfigPane();
 		}
@@ -1671,7 +1684,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			musicDataPane = new javax.swing.JPanel();
 			musicDataPane.setName("musicDataPane");
 			musicDataPane.setLayout(new java.awt.GridBagLayout());
-			musicDataPane.setBorder(new TitledBorder(null, "Name", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.DIALOG_FONT, null));
+			musicDataPane.setBorder(new TitledBorder(null, "Name", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.getDialogFont(), null));
 			
 			musicDataPane.add(getLEDScrollPanel(), Helpers.getGridBagConstraint(0, 0, 1, 0, java.awt.GridBagConstraints.NONE, java.awt.GridBagConstraints.CENTER, 0.0, 0.0));
 		}
@@ -1700,7 +1713,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			playerDataPane = new javax.swing.JPanel();
 			playerDataPane.setName("playerDataPane");
 			playerDataPane.setLayout(new java.awt.GridBagLayout());
-			playerDataPane.setBorder(new TitledBorder(null, "Player Data", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.DIALOG_FONT, null));
+			playerDataPane.setBorder(new TitledBorder(null, "Player Data", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.getDialogFont(), null));
 			
 			playerDataPane.add(getVULMeterPanel(), Helpers.getGridBagConstraint(0, 0, 1, 1, java.awt.GridBagConstraints.NONE, java.awt.GridBagConstraints.CENTER, 0.0, 0.0));
 			playerDataPane.add(getSALMeterPanel(), Helpers.getGridBagConstraint(1, 0, 1, 1, java.awt.GridBagConstraints.NONE, java.awt.GridBagConstraints.CENTER, 0.0, 0.0));
@@ -1716,7 +1729,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 			playerControlPane = new javax.swing.JPanel();
 			playerControlPane.setName("playerControlPane");
 			playerControlPane.setLayout(new java.awt.GridBagLayout());
-			playerControlPane.setBorder(new TitledBorder(null, "Player Control", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.DIALOG_FONT, null));
+			playerControlPane.setBorder(new TitledBorder(null, "Player Control", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION, Helpers.getDialogFont(), null));
 
 			playerControlPane.add(getButton_Prev(),		Helpers.getGridBagConstraint(0, 0, 2, 1, java.awt.GridBagConstraints.NONE, java.awt.GridBagConstraints.CENTER, 0.0, 0.0));
 			playerControlPane.add(getButton_Play(),		Helpers.getGridBagConstraint(1, 0, 2, 1, java.awt.GridBagConstraints.NONE, java.awt.GridBagConstraints.CENTER, 0.0, 0.0));
@@ -1894,7 +1907,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 		if (volumeLabel==null)
 		{
 			volumeLabel = new JLabel("Volume");
-			volumeLabel.setFont(Helpers.DIALOG_FONT);
+			volumeLabel.setFont(Helpers.getDialogFont());
 		}
 		return volumeLabel;
 	}
@@ -1942,7 +1955,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 		if (balanceLabel==null)
 		{
 			balanceLabel = new JLabel("Balance");
-			balanceLabel.setFont(Helpers.DIALOG_FONT);
+			balanceLabel.setFont(Helpers.getDialogFont());
 		}
 		return balanceLabel;
 	}
@@ -2068,22 +2081,12 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 
 		useSystemTray = false; setSystemTray();
 
-		getJavaModAbout().setVisible(false);
-	    getModInfoDialog().setVisible(false);
-		getPlayerSetUpDialog().setVisible(false);
-		getURLDialog().setVisible(false);
-		getShowVersion_Text().setVisible(false);
-		getPlaylistDialog().setVisible(false);
-		getEffectDialog().setVisible(false);
+		for (Window win : windows)
+		{
+			win.setVisible(false);
+			win.dispose();
+		}
 		setVisible(false);
-
-		getJavaModAbout().dispose();
-		getModInfoDialog().dispose();
-		getPlayerSetUpDialog().dispose();
-		getURLDialog().dispose();
-		getShowVersion_Text().dispose();
-		getPlaylistDialog().dispose();
-		getEffectDialog().dispose();
 		dispose();
 		
 		System.exit(0); // this should not be needed! 
@@ -2094,7 +2097,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 	 */
 	private void doOpenFile()
 	{
-		FileChooserResult selectedFile = Helpers.selectFileNameFor(this, searchPath, "Load a Sound-File", fileFilterLoad, 0, true);
+		FileChooserResult selectedFile = Helpers.selectFileNameFor(this, searchPath, "Load a Sound-File", fileFilterLoad, 0, true, false);
 		if (selectedFile!=null) 
 			doOpenFile(selectedFile.getSelectedFiles());
 	}
@@ -2168,7 +2171,7 @@ public class MainForm extends javax.swing.JFrame implements DspProcessorCallBack
 				String fileName = Helpers.createLocalFileStringFromURL(currentContainer.getFileURL(), true);
 				fileName = fileName.substring(fileName.lastIndexOf(File.separatorChar)+1);
 				String exportToWav = exportPath + File.separatorChar + fileName + ".WAV";
-				FileChooserResult selectedFile = Helpers.selectFileNameFor(this, exportToWav, "Export to wave", fileFilterExport, 1, false);
+				FileChooserResult selectedFile = Helpers.selectFileNameFor(this, exportToWav, "Export to wave", fileFilterExport, 1, false, false);
 				if (selectedFile!=null)
 				{
 					File f = selectedFile.getSelectedFile();

@@ -126,11 +126,11 @@ public class SeekBarPanel extends ThreadUpdatePanel
 			timeTextField.setHorizontalAlignment(JTextField.TRAILING);
 			timeTextField.setEditable(false);
 			timeTextField.setName("timeTextField");
-			timeTextField.setFont(Helpers.DIALOG_FONT);
+			timeTextField.setFont(Helpers.getDialogFont());
 			timeTextField.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			
 			// Preserve characters space - not less, not more!
-			final FontMetrics metrics = timeTextField.getFontMetrics(Helpers.DIALOG_FONT);
+			final FontMetrics metrics = timeTextField.getFontMetrics(Helpers.getDialogFont());
 			final Dimension d = new Dimension(6 * metrics.charWidth('0'), metrics.getHeight());
 			timeTextField.setSize(d);
 			timeTextField.setMinimumSize(d);
@@ -159,7 +159,7 @@ public class SeekBarPanel extends ThreadUpdatePanel
 			timeLabel = new javax.swing.JLabel();
 			timeLabel.setName("timeLabel");
 			timeLabel.setText("time");
-			timeLabel.setFont(Helpers.DIALOG_FONT);
+			timeLabel.setFont(Helpers.getDialogFont());
 		}
 		return timeLabel;
 	}
@@ -171,10 +171,10 @@ public class SeekBarPanel extends ThreadUpdatePanel
 			KBSField.setHorizontalAlignment(JTextField.TRAILING);
 			KBSField.setEditable(false);
 			KBSField.setName("KBSField");
-			KBSField.setFont(Helpers.DIALOG_FONT);
+			KBSField.setFont(Helpers.getDialogFont());
 
 			// Preserve characters space - not less, not more!
-			final FontMetrics metrics = timeTextField.getFontMetrics(Helpers.DIALOG_FONT);
+			final FontMetrics metrics = timeTextField.getFontMetrics(Helpers.getDialogFont());
 			final Dimension d = new Dimension(6 * metrics.charWidth('0'), metrics.getHeight());
 			KBSField.setSize(d);
 			KBSField.setMinimumSize(d);
@@ -190,7 +190,7 @@ public class SeekBarPanel extends ThreadUpdatePanel
 			KBSLabel = new javax.swing.JLabel();
 			KBSLabel.setName("KBSLabel");
 			KBSLabel.setText("KB/s");
-			KBSLabel.setFont(Helpers.DIALOG_FONT);
+			KBSLabel.setFont(Helpers.getDialogFont());
 		}
 		return KBSLabel;
 	}
@@ -202,10 +202,10 @@ public class SeekBarPanel extends ThreadUpdatePanel
 			KHZField.setHorizontalAlignment(JTextField.TRAILING);
 			KHZField.setEditable(false);
 			KHZField.setName("KHZField");
-			KHZField.setFont(Helpers.DIALOG_FONT);
+			KHZField.setFont(Helpers.getDialogFont());
 
 			// Preserve characters space - not less, not more!
-			final FontMetrics metrics = timeTextField.getFontMetrics(Helpers.DIALOG_FONT);
+			final FontMetrics metrics = timeTextField.getFontMetrics(Helpers.getDialogFont());
 			final Dimension d = new Dimension(4 * metrics.charWidth('0'), metrics.getHeight());
 			KHZField.setSize(d);
 			KHZField.setMinimumSize(d);
@@ -221,7 +221,7 @@ public class SeekBarPanel extends ThreadUpdatePanel
 			KHZLabel = new javax.swing.JLabel();
 			KHZLabel.setName("KHZLabel");
 			KHZLabel.setText("KHZ");
-			KHZLabel.setFont(Helpers.DIALOG_FONT);
+			KHZLabel.setFont(Helpers.getDialogFont());
 		}
 		return KHZLabel;
 	}
@@ -233,10 +233,10 @@ public class SeekBarPanel extends ThreadUpdatePanel
 			activeChannelsTextField.setHorizontalAlignment(JTextField.TRAILING);
 			activeChannelsTextField.setEditable(false);
 			activeChannelsTextField.setName("activeChannelsTextField");
-			activeChannelsTextField.setFont(Helpers.DIALOG_FONT);
+			activeChannelsTextField.setFont(Helpers.getDialogFont());
 
 			// Preserve characters space - not less, not more!
-			final FontMetrics metrics = timeTextField.getFontMetrics(Helpers.DIALOG_FONT);
+			final FontMetrics metrics = timeTextField.getFontMetrics(Helpers.getDialogFont());
 			final Dimension d = new Dimension(4 * metrics.charWidth('0'), metrics.getHeight());
 			activeChannelsTextField.setSize(d);
 			activeChannelsTextField.setMinimumSize(d);
@@ -252,7 +252,7 @@ public class SeekBarPanel extends ThreadUpdatePanel
 			activeChannelsLabel = new javax.swing.JLabel();
 			activeChannelsLabel.setName("activeChannelsLabel");
 			activeChannelsLabel.setText("Chn");
-			activeChannelsLabel.setFont(Helpers.DIALOG_FONT);
+			activeChannelsLabel.setFont(Helpers.getDialogFont());
 		}
 		return activeChannelsLabel;
 	}

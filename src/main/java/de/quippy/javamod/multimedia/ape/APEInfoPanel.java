@@ -115,7 +115,7 @@ public class APEInfoPanel extends JPanel
 			apeInfo_L_Filename = new javax.swing.JLabel();
 			apeInfo_L_Filename.setName("apeInfo_L_Filename");
 			apeInfo_L_Filename.setText("File");
-			apeInfo_L_Filename.setFont(Helpers.DIALOG_FONT);
+			apeInfo_L_Filename.setFont(Helpers.getDialogFont());
 		}
 		return apeInfo_L_Filename;
 	}
@@ -125,7 +125,7 @@ public class APEInfoPanel extends JPanel
 		{
 			apeInfo_Filename = new javax.swing.JTextField();
 			apeInfo_Filename.setName("apeInfo_Filename");
-			apeInfo_Filename.setFont(Helpers.DIALOG_FONT);
+			apeInfo_Filename.setFont(Helpers.getDialogFont());
 			apeInfo_Filename.setEditable(false);
 		}
 		return apeInfo_Filename;
@@ -137,7 +137,7 @@ public class APEInfoPanel extends JPanel
 			apeInfo_L_ShortDescription = new javax.swing.JLabel();
 			apeInfo_L_ShortDescription.setName("apeInfo_L_ShortDescription");
 			apeInfo_L_ShortDescription.setText("Name");
-			apeInfo_L_ShortDescription.setFont(Helpers.DIALOG_FONT);
+			apeInfo_L_ShortDescription.setFont(Helpers.getDialogFont());
 		}
 		return apeInfo_L_ShortDescription;
 	}
@@ -147,7 +147,7 @@ public class APEInfoPanel extends JPanel
 		{
 			apeInfo_ShortDescription = new javax.swing.JTextField();
 			apeInfo_ShortDescription.setName("apeInfo_ShortDescription");
-			apeInfo_ShortDescription.setFont(Helpers.DIALOG_FONT);
+			apeInfo_ShortDescription.setFont(Helpers.getDialogFont());
 			apeInfo_ShortDescription.setEditable(false);
 		}
 		return apeInfo_ShortDescription;
@@ -182,7 +182,7 @@ public class APEInfoPanel extends JPanel
 			v1_L_Track = new javax.swing.JLabel();
 			v1_L_Track.setName("v1_L_Track");
 			v1_L_Track.setText("Track #");
-			v1_L_Track.setFont(Helpers.DIALOG_FONT);
+			v1_L_Track.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Track;
 	}
@@ -192,7 +192,7 @@ public class APEInfoPanel extends JPanel
 		{
 			v1_Track = new javax.swing.JTextField();
 			v1_Track.setName("v1_Track");
-			v1_Track.setFont(Helpers.DIALOG_FONT);
+			v1_Track.setFont(Helpers.getDialogFont());
 			v1_Track.setEditable(true);
 		}
 		return v1_Track;
@@ -204,7 +204,7 @@ public class APEInfoPanel extends JPanel
 			v1_L_Title = new javax.swing.JLabel();
 			v1_L_Title.setName("v1_L_Title");
 			v1_L_Title.setText("Title");
-			v1_L_Title.setFont(Helpers.DIALOG_FONT);
+			v1_L_Title.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Title;
 	}
@@ -214,7 +214,7 @@ public class APEInfoPanel extends JPanel
 		{
 			v1_Title = new javax.swing.JTextField();
 			v1_Title.setName("v1_Title");
-			v1_Title.setFont(Helpers.DIALOG_FONT);
+			v1_Title.setFont(Helpers.getDialogFont());
 			v1_Title.setEditable(true);
 		}
 		return v1_Title;
@@ -226,7 +226,7 @@ public class APEInfoPanel extends JPanel
 			v1_L_Artist = new javax.swing.JLabel();
 			v1_L_Artist.setName("v1_L_Artist");
 			v1_L_Artist.setText("Artist");
-			v1_L_Artist.setFont(Helpers.DIALOG_FONT);
+			v1_L_Artist.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Artist;
 	}
@@ -236,7 +236,7 @@ public class APEInfoPanel extends JPanel
 		{
 			v1_Artist = new javax.swing.JTextField();
 			v1_Artist.setName("v1_Artist");
-			v1_Artist.setFont(Helpers.DIALOG_FONT);
+			v1_Artist.setFont(Helpers.getDialogFont());
 			v1_Artist.setEditable(true);
 		}
 		return v1_Artist;
@@ -248,7 +248,7 @@ public class APEInfoPanel extends JPanel
 			v1_L_Album = new javax.swing.JLabel();
 			v1_L_Album.setName("v1_L_Album");
 			v1_L_Album.setText("Album");
-			v1_L_Album.setFont(Helpers.DIALOG_FONT);
+			v1_L_Album.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Album;
 	}
@@ -258,7 +258,7 @@ public class APEInfoPanel extends JPanel
 		{
 			v1_Album = new javax.swing.JTextField();
 			v1_Album.setName("v1_Album");
-			v1_Album.setFont(Helpers.DIALOG_FONT);
+			v1_Album.setFont(Helpers.getDialogFont());
 			v1_Album.setEditable(true);
 		}
 		return v1_Album;
@@ -270,7 +270,7 @@ public class APEInfoPanel extends JPanel
 			v1_L_Year = new javax.swing.JLabel();
 			v1_L_Year.setName("v1_L_Year");
 			v1_L_Year.setText("Year");
-			v1_L_Year.setFont(Helpers.DIALOG_FONT);
+			v1_L_Year.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Year;
 	}
@@ -280,7 +280,7 @@ public class APEInfoPanel extends JPanel
 		{
 			v1_Year = new javax.swing.JTextField();
 			v1_Year.setName("v1_Year");
-			v1_Year.setFont(Helpers.DIALOG_FONT);
+			v1_Year.setFont(Helpers.getDialogFont());
 			v1_Year.setEditable(true);
 		}
 		return v1_Year;
@@ -292,7 +292,7 @@ public class APEInfoPanel extends JPanel
 			v1_L_Genre = new javax.swing.JLabel();
 			v1_L_Genre.setName("v1_L_Genre");
 			v1_L_Genre.setText("Genre");
-			v1_L_Genre.setFont(Helpers.DIALOG_FONT);
+			v1_L_Genre.setFont(Helpers.getDialogFont());
 		}
 		return v1_L_Genre;
 	}
@@ -302,7 +302,7 @@ public class APEInfoPanel extends JPanel
 		{
 			v1_Genre = new javax.swing.JComboBox<String>(ID3Genre.getGenres());
 			v1_Genre.setName("v1_Genre");
-			v1_Genre.setFont(Helpers.DIALOG_FONT);
+			v1_Genre.setFont(Helpers.getDialogFont());
 			v1_Genre.setEditable(true);
 		}
 		return v1_Genre;

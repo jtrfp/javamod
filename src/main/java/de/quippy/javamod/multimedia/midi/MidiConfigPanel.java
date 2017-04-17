@@ -124,7 +124,7 @@ public class MidiConfigPanel extends JPanel
 		if (capture==null)
 		{
 			capture = new JCheckBox("Capture Midi-Output");
-			capture.setFont(Helpers.DIALOG_FONT);
+			capture.setFont(Helpers.getDialogFont());
 		}
 		return capture;
 	}
@@ -134,7 +134,7 @@ public class MidiConfigPanel extends JPanel
 		if (midiOutputDeviceLabel==null)
 		{
 			midiOutputDeviceLabel = new JLabel("Midi Ouput Devices");
-			midiOutputDeviceLabel.setFont(Helpers.DIALOG_FONT);
+			midiOutputDeviceLabel.setFont(Helpers.getDialogFont());
 		}
 		return midiOutputDeviceLabel;
 	}
@@ -143,7 +143,7 @@ public class MidiConfigPanel extends JPanel
 		if (midiSoundBankLabel==null)
 		{
 			midiSoundBankLabel = new JLabel("soundbank file for default synthesizer");
-			midiSoundBankLabel.setFont(Helpers.DIALOG_FONT);
+			midiSoundBankLabel.setFont(Helpers.getDialogFont());
 		}
 		return midiSoundBankLabel;
 	}
@@ -152,7 +152,7 @@ public class MidiConfigPanel extends JPanel
 		if (mixerInputDeviceLabel==null)
 		{
 			mixerInputDeviceLabel = new JLabel("Capture Devices");
-			mixerInputDeviceLabel.setFont(Helpers.DIALOG_FONT);
+			mixerInputDeviceLabel.setFont(Helpers.getDialogFont());
 		}
 		return mixerInputDeviceLabel;
 	}
@@ -168,7 +168,7 @@ public class MidiConfigPanel extends JPanel
 				javax.swing.DefaultComboBoxModel<MidiDevice.Info> theModel = new javax.swing.DefaultComboBoxModel<MidiDevice.Info>(MidiContainer.MIDIOUTDEVICEINFOS);
 				midiOutputDevice.setModel(theModel);
 			}
-			midiOutputDevice.setFont(Helpers.DIALOG_FONT);
+			midiOutputDevice.setFont(Helpers.getDialogFont());
 			midiOutputDevice.setEnabled(true);
 			// Changing on the fly does not seem to work!!!
 //			midiOutputDevice.addItemListener(new ItemListener()
@@ -199,7 +199,7 @@ public class MidiConfigPanel extends JPanel
 		{
 			midiSoundBankUrl = new javax.swing.JTextField();
 			midiSoundBankUrl.setColumns(20);
-			midiSoundBankUrl.setFont(Helpers.DIALOG_FONT);
+			midiSoundBankUrl.setFont(Helpers.getDialogFont());
 		}
 		return midiSoundBankUrl;
 	}
@@ -207,7 +207,7 @@ public class MidiConfigPanel extends JPanel
 	{
 		FileFilter[] fileFilter = new FileFilter[1];
 		fileFilter[0] = new FileChooserFilter("gm", "Soundbank file");
-		FileChooserResult selectedFile = Helpers.selectFileNameFor(this, null, "Select soundbank file", fileFilter, 0, false);
+		FileChooserResult selectedFile = Helpers.selectFileNameFor(this, null, "Select soundbank file", fileFilter, 0, false, false);
 		if (selectedFile!=null)
 		{
 			File select = selectedFile.getSelectedFile();
@@ -221,7 +221,7 @@ public class MidiConfigPanel extends JPanel
 			searchButton = new javax.swing.JButton();
 			searchButton.setMnemonic('S');
 			searchButton.setText("Search");
-			searchButton.setFont(Helpers.DIALOG_FONT);
+			searchButton.setFont(Helpers.getDialogFont());
 			searchButton.setToolTipText("Search a soundbank file for the default synthesizer");
 			searchButton.addActionListener(new java.awt.event.ActionListener()
 	        {
@@ -245,7 +245,7 @@ public class MidiConfigPanel extends JPanel
 				javax.swing.DefaultComboBoxModel<javax.sound.sampled.Mixer.Info> theModel = new javax.swing.DefaultComboBoxModel<javax.sound.sampled.Mixer.Info>(MidiContainer.MIXERDEVICEINFOS);
 				mixerInputDevice.setModel(theModel);
 			}
-			mixerInputDevice.setFont(Helpers.DIALOG_FONT);
+			mixerInputDevice.setFont(Helpers.getDialogFont());
 			mixerInputDevice.setEnabled(true);
 		}
 		return mixerInputDevice;

@@ -106,12 +106,12 @@ public abstract class MeterPanelBase extends ThreadUpdatePanel
 	   		try
 	   		{
 	   			drawMeter(buffer.getGraphics(), 0, 0, myWidth, myHeight);
+		   		this.repaint();
 	   		}
 	   		catch (Exception ex)
 	   		{
 	   			Log.error("drawMeter:", ex);
 	   		}
-	   		this.repaint();
        	}
 	}
 	/**

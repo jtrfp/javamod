@@ -76,7 +76,7 @@ public class EffectsPanel extends JPanel
 			passThrough = new javax.swing.JCheckBox();
 			passThrough.setName("passThrough");
 			passThrough.setText("activate effects");
-			passThrough.setFont(Helpers.DIALOG_FONT);
+			passThrough.setFont(Helpers.getDialogFont());
 			if (audioProcessor!=null) passThrough.setSelected(audioProcessor.isDspEnabled());
 			passThrough.addItemListener(new ItemListener()
 			{
@@ -97,7 +97,7 @@ public class EffectsPanel extends JPanel
 		if (tabbedPane==null)
 		{
 			tabbedPane = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
-			tabbedPane.setFont(Helpers.DIALOG_FONT);
+			tabbedPane.setFont(Helpers.getDialogFont());
 			for (int i=0; i<effectPanels.length; i++)
 			{
 				JPanel effectPanel = effectPanels[i];

@@ -230,7 +230,7 @@ public class ProTrackerMixer extends BasicModMixer
 				}
 				break;
 			case 0x0B :			// Pattern position jump
-				patternPosJumpPatternIndex = aktMemo.effektParam;
+				patternBreakJumpPatternIndex = aktMemo.effektParam;
 				break;
 			case 0x0C :			// Set volume
 				aktMemo.currentSetVolume = aktMemo.currentVolume = aktMemo.effektParam;
@@ -267,34 +267,30 @@ public class ProTrackerMixer extends BasicModMixer
 						setNewPlayerTuningFor(aktMemo);
 						break;
 					case 0x6 :	// JumpLoop
-						// this effekt is simulated through pattern break and position jump
 						if (effektOp==0) // Set a marker for loop
 						{
-							jumpLoopPatternIndex = currentArrangement; // position jump index!
-							jumpLoopPatternRow = currentRow;
-							jumpLoopPositionSet = true;
+							aktMemo.jumpLoopPatternRow = currentRow;
+							aktMemo.jumpLoopPositionSet = true;
 							break;
 						}
-						if (jumpLoopRepeatCount==-1) // was not set!
+						if (aktMemo.jumpLoopRepeatCount==-1) // was not set!
 						{
-							jumpLoopRepeatCount=effektOp;
-							if (!jumpLoopPositionSet) // if not set, pattern Start is default!
+							aktMemo.jumpLoopRepeatCount=effektOp;
+							if (!aktMemo.jumpLoopPositionSet) // if not set, pattern Start is default!
 							{
-								jumpLoopPatternIndex = currentArrangement; // position jump index!
-								jumpLoopPatternRow = 0;
-								jumpLoopPositionSet = true;
+								aktMemo.jumpLoopPatternRow = 0;
+								aktMemo.jumpLoopPositionSet = true;
 							}
 						}
-						if (jumpLoopRepeatCount>0 && jumpLoopPositionSet)
+						if (aktMemo.jumpLoopRepeatCount>0 && aktMemo.jumpLoopPositionSet)
 						{
-							jumpLoopRepeatCount--;
-							patternBreakRowIndex = jumpLoopPatternRow;
-							patternPosJumpPatternIndex = jumpLoopPatternIndex;
+							aktMemo.jumpLoopRepeatCount--;
+							patternJumpPatternIndex = aktMemo.jumpLoopPatternRow;
 						}
 						else
 						{
-							jumpLoopPositionSet = false;
-							jumpLoopRepeatCount = -1;
+							aktMemo.jumpLoopPositionSet = false;
+							aktMemo.jumpLoopRepeatCount = -1;
 						}
 						break;
 					case 0x7:	// Set Tremolo Type

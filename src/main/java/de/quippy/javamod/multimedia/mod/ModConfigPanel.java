@@ -140,7 +140,7 @@ public class ModConfigPanel extends JPanel
 			playerSetUp_WideStereoMix = new javax.swing.JCheckBox();
 			playerSetUp_WideStereoMix.setName("playerSetUp_WideStereoMix");
 			playerSetUp_WideStereoMix.setText("Wide Stereo Mix");
-			playerSetUp_WideStereoMix.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_WideStereoMix.setFont(Helpers.getDialogFont());
 			playerSetUp_WideStereoMix.addItemListener(new ItemListener()
 			{
 				public void itemStateChanged(ItemEvent e)
@@ -167,7 +167,7 @@ public class ModConfigPanel extends JPanel
 			playerSetUp_NoiseReduction = new javax.swing.JCheckBox();
 			playerSetUp_NoiseReduction.setName("playerSetUp_NoiseReduction");
 			playerSetUp_NoiseReduction.setText("Noise Reduction");
-			playerSetUp_NoiseReduction.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_NoiseReduction.setFont(Helpers.getDialogFont());
 			playerSetUp_NoiseReduction.addItemListener(new ItemListener()
 			{
 				public void itemStateChanged(ItemEvent e)
@@ -194,7 +194,7 @@ public class ModConfigPanel extends JPanel
 			playerSetUp_MegaBass = new javax.swing.JCheckBox();
 			playerSetUp_MegaBass.setName("playerSetUp_MegaBass");
 			playerSetUp_MegaBass.setText("Bass Boost");
-			playerSetUp_MegaBass.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_MegaBass.setFont(Helpers.getDialogFont());
 			playerSetUp_MegaBass.addItemListener(new ItemListener()
 			{
 				public void itemStateChanged(ItemEvent e)
@@ -263,7 +263,7 @@ public class ModConfigPanel extends JPanel
 			playerSetUp_fadeOutLoops = new javax.swing.JCheckBox();
 			playerSetUp_fadeOutLoops.setName("playerSetUp_fadeOutLoops");
 			playerSetUp_fadeOutLoops.setText("Fade out infinit loops");
-			playerSetUp_fadeOutLoops.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_fadeOutLoops.setFont(Helpers.getDialogFont());
 			playerSetUp_fadeOutLoops.addItemListener(new ItemListener()
 			{
 				public void itemStateChanged(ItemEvent e)
@@ -286,7 +286,7 @@ public class ModConfigPanel extends JPanel
 			playerSetUp_ignoreLoops = new javax.swing.JCheckBox();
 			playerSetUp_ignoreLoops.setName("playerSetUp_ignoreLoops");
 			playerSetUp_ignoreLoops.setText("Ignore infinit loops");
-			playerSetUp_ignoreLoops.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_ignoreLoops.setFont(Helpers.getDialogFont());
 			playerSetUp_ignoreLoops.addItemListener(new ItemListener()
 			{
 				public void itemStateChanged(ItemEvent e)
@@ -309,7 +309,7 @@ public class ModConfigPanel extends JPanel
 			playerSetUp_L_BitsPerSample = new javax.swing.JLabel();
 			playerSetUp_L_BitsPerSample.setName("playerSetUp_L_BitsPerSample");
 			playerSetUp_L_BitsPerSample.setText("Resolution");
-			playerSetUp_L_BitsPerSample.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_L_BitsPerSample.setFont(Helpers.getDialogFont());
 		}
 		return playerSetUp_L_BitsPerSample;
 	}
@@ -322,7 +322,7 @@ public class ModConfigPanel extends JPanel
 
 			javax.swing.DefaultComboBoxModel<String> theModel = new javax.swing.DefaultComboBoxModel<String>(ModContainer.BITSPERSAMPLE);
 			playerSetUp_BitsPerSample.setModel(theModel);
-			playerSetUp_BitsPerSample.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_BitsPerSample.setFont(Helpers.getDialogFont());
 			playerSetUp_BitsPerSample.setEnabled(true);
 			playerSetUp_BitsPerSample.addItemListener(new ItemListener()
 			{
@@ -350,7 +350,7 @@ public class ModConfigPanel extends JPanel
 			playerSetUp_L_Channels = new javax.swing.JLabel();
 			playerSetUp_L_Channels.setName("playerSetUp_L_Channels");
 			playerSetUp_L_Channels.setText("Channels");
-			playerSetUp_L_Channels.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_L_Channels.setFont(Helpers.getDialogFont());
 		}
 		return playerSetUp_L_Channels;
 	}
@@ -363,7 +363,7 @@ public class ModConfigPanel extends JPanel
 			
 			javax.swing.DefaultComboBoxModel<String> theModel = new javax.swing.DefaultComboBoxModel<String>(ModContainer.CHANNELS);
 			playerSetUp_Channels.setModel(theModel);
-			playerSetUp_Channels.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_Channels.setFont(Helpers.getDialogFont());
 			playerSetUp_Channels.setEnabled(true);
 			playerSetUp_Channels.addItemListener(new ItemListener()
 			{
@@ -391,7 +391,7 @@ public class ModConfigPanel extends JPanel
 			playerSetUp_L_SampleRate = new javax.swing.JLabel();
 			playerSetUp_L_SampleRate.setName("playerSetUp_L_SampleRate");
 			playerSetUp_L_SampleRate.setText("Frequency");
-			playerSetUp_L_SampleRate.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_L_SampleRate.setFont(Helpers.getDialogFont());
 		}
 		return playerSetUp_L_SampleRate;
 	}
@@ -404,7 +404,7 @@ public class ModConfigPanel extends JPanel
 			
 			javax.swing.DefaultComboBoxModel<String> theModel = new javax.swing.DefaultComboBoxModel<String>(ModContainer.SAMPLERATE);
 			playerSetUp_SampleRate.setModel(theModel);
-			playerSetUp_SampleRate.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_SampleRate.setFont(Helpers.getDialogFont());
 			playerSetUp_SampleRate.setEnabled(true);
 			playerSetUp_SampleRate.addItemListener(new ItemListener()
 			{
@@ -432,7 +432,7 @@ public class ModConfigPanel extends JPanel
 			playerSetUp_L_Interpolation = new javax.swing.JLabel();
 			playerSetUp_L_Interpolation.setName("playerSetUp_L_Interpolation");
 			playerSetUp_L_Interpolation.setText("Interpolation");
-			playerSetUp_L_Interpolation.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_L_Interpolation.setFont(Helpers.getDialogFont());
 		}
 		return playerSetUp_L_Interpolation;
 	}
@@ -445,7 +445,7 @@ public class ModConfigPanel extends JPanel
 			
 			javax.swing.DefaultComboBoxModel<String> theModel = new javax.swing.DefaultComboBoxModel<String>(ModContainer.INTERPOLATION);
 			playerSetUp_Interpolation.setModel(theModel);
-			playerSetUp_Interpolation.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_Interpolation.setFont(Helpers.getDialogFont());
 			playerSetUp_Interpolation.setEnabled(true);
 			playerSetUp_Interpolation.addItemListener(new ItemListener()
 			{
@@ -473,7 +473,7 @@ public class ModConfigPanel extends JPanel
 			playerSetUp_L_BufferSize = new javax.swing.JLabel();
 			playerSetUp_L_BufferSize.setName("playerSetUp_BufferSize");
 			playerSetUp_L_BufferSize.setText("ms buffer size");
-			playerSetUp_L_BufferSize.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_L_BufferSize.setFont(Helpers.getDialogFont());
 		}
 		return playerSetUp_L_BufferSize;
 	}
@@ -486,7 +486,7 @@ public class ModConfigPanel extends JPanel
 			
 			javax.swing.DefaultComboBoxModel<String> theModel = new javax.swing.DefaultComboBoxModel<String>(ModContainer.BUFFERSIZE);
 			playerSetUp_BufferSize.setModel(theModel);
-			playerSetUp_BufferSize.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_BufferSize.setFont(Helpers.getDialogFont());
 			playerSetUp_BufferSize.setEnabled(true);
 			playerSetUp_BufferSize.addItemListener(new ItemListener()
 			{

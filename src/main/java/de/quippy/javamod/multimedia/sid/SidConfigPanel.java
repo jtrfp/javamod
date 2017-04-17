@@ -126,7 +126,7 @@ public class SidConfigPanel extends JPanel
 			playerSetUp_L_SampleRate = new javax.swing.JLabel();
 			playerSetUp_L_SampleRate.setName("playerSetUp_L_SampleRate");
 			playerSetUp_L_SampleRate.setText("Frequency");
-			playerSetUp_L_SampleRate.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_L_SampleRate.setFont(Helpers.getDialogFont());
 		}
 		return playerSetUp_L_SampleRate;
 	}
@@ -139,7 +139,7 @@ public class SidConfigPanel extends JPanel
 			
 			javax.swing.DefaultComboBoxModel<String> theModel = new javax.swing.DefaultComboBoxModel<String>(SIDContainer.SAMPLERATE);
 			playerSetUp_SampleRate.setModel(theModel);
-			playerSetUp_SampleRate.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_SampleRate.setFont(Helpers.getDialogFont());
 			playerSetUp_SampleRate.setEnabled(true);
 			playerSetUp_SampleRate.addItemListener(new ItemListener()
 			{
@@ -167,7 +167,7 @@ public class SidConfigPanel extends JPanel
 			playerSetUp_L_SIDModel = new javax.swing.JLabel();
 			playerSetUp_L_SIDModel.setName("playerSetUp_L_SIDModel");
 			playerSetUp_L_SIDModel.setText("SID Model");
-			playerSetUp_L_SIDModel.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_L_SIDModel.setFont(Helpers.getDialogFont());
 		}
 		return playerSetUp_L_SIDModel;
 	}
@@ -180,7 +180,7 @@ public class SidConfigPanel extends JPanel
 			
 			javax.swing.DefaultComboBoxModel<String> theModel = new javax.swing.DefaultComboBoxModel<String>(SIDContainer.SIDMODELS);
 			playerSetUp_SIDModel.setModel(theModel);
-			playerSetUp_SIDModel.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_SIDModel.setFont(Helpers.getDialogFont());
 			playerSetUp_SIDModel.setEnabled(true);
 			playerSetUp_SIDModel.addItemListener(new ItemListener()
 			{
@@ -208,7 +208,7 @@ public class SidConfigPanel extends JPanel
 			playerSetUp_L_Optimization = new javax.swing.JLabel();
 			playerSetUp_L_Optimization.setName("playerSetUp_L_Optimization");
 			playerSetUp_L_Optimization.setText("Optimization");
-			playerSetUp_L_Optimization.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_L_Optimization.setFont(Helpers.getDialogFont());
 		}
 		return playerSetUp_L_Optimization;
 	}
@@ -240,7 +240,7 @@ public class SidConfigPanel extends JPanel
 		if (playerSetUp_Optimization_Level1==null)
 		{
 			playerSetUp_Optimization_Level1 = new JRadioButton("Level 1");
-			playerSetUp_Optimization_Level1.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_Optimization_Level1.setFont(Helpers.getDialogFont());
 			playerSetUp_Optimization_Level1.addItemListener(new ItemListener()
 			{
 				public void itemStateChanged(ItemEvent e)
@@ -268,7 +268,7 @@ public class SidConfigPanel extends JPanel
 		if (playerSetUp_Optimization_Level2==null)
 		{
 			playerSetUp_Optimization_Level2 = new JRadioButton("Level 2");
-			playerSetUp_Optimization_Level2.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_Optimization_Level2.setFont(Helpers.getDialogFont());
 			playerSetUp_Optimization_Level2.addItemListener(new ItemListener()
 			{
 				public void itemStateChanged(ItemEvent e)
@@ -298,7 +298,7 @@ public class SidConfigPanel extends JPanel
 			playerSetUp_UseFilter = new javax.swing.JCheckBox();
 			playerSetUp_UseFilter.setName("playerSetUp_UseFilter");
 			playerSetUp_UseFilter.setText("use SID Filter");
-			playerSetUp_UseFilter.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_UseFilter.setFont(Helpers.getDialogFont());
 			playerSetUp_UseFilter.addItemListener(new ItemListener()
 			{
 				public void itemStateChanged(ItemEvent e)
@@ -325,7 +325,7 @@ public class SidConfigPanel extends JPanel
 			playerSetUp_VirtualStereo = new javax.swing.JCheckBox();
 			playerSetUp_VirtualStereo.setName("playerSetUp_VirtualStereo");
 			playerSetUp_VirtualStereo.setText("virtual Stereo");
-			playerSetUp_VirtualStereo.setFont(Helpers.DIALOG_FONT);
+			playerSetUp_VirtualStereo.setFont(Helpers.getDialogFont());
 			playerSetUp_VirtualStereo.addItemListener(new ItemListener()
 			{
 				public void itemStateChanged(ItemEvent e)

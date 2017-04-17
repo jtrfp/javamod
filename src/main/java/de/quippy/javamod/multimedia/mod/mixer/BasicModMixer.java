@@ -83,6 +83,9 @@ public abstract class BasicModMixer
 		public int retrigCount, retrigMemo, retrigVolSlide;
 		public int sampleOffset, highSampleOffset;
 		
+		public int jumpLoopPatternRow, jumpLoopRepeatCount;
+		public boolean jumpLoopPositionSet;
+
 		public boolean doSurround;
 		
 		// Resonance Filter
@@ -138,6 +141,9 @@ public abstract class BasicModMixer
 			nResonance = nCutOff = nCutSwing = nResSwing = 0;
 			nFilter_A0 = nFilter_B0 = nFilter_B1 = nFilter_HP = 0;
 			nFilter_Y1 = nFilter_Y2 = 0; 
+
+			jumpLoopPositionSet = false;
+			patternJumpPatternIndex = jumpLoopPatternRow = jumpLoopRepeatCount = -1;
 		}
 		/**
 		 * DeepCopy by Reflection - iterate through all fields and copy the values
@@ -179,9 +185,8 @@ public abstract class BasicModMixer
 	protected int volRampLen;
 	
 	protected int patternBreakRowIndex; // -1== no pattern break, otherwise >=0
-	protected int patternPosJumpPatternIndex; // -1== no pattern pos jump
-	protected boolean jumpLoopPositionSet;
-	protected int jumpLoopPatternIndex, jumpLoopPatternRow, jumpLoopRepeatCount;
+	protected int patternBreakJumpPatternIndex; // -1== no pattern pos jump
+	protected int patternJumpPatternIndex;
 	
 	protected final Module mod;
 	protected int sampleRate;
@@ -301,11 +306,8 @@ public abstract class BasicModMixer
 		currentPatternIndex = mod.getArrangement()[currentArrangement];
 		currentPattern = mod.getPatternContainer().getPattern(currentPatternIndex);
 		
-		patternBreakRowIndex = patternPosJumpPatternIndex = -1;
+		patternJumpPatternIndex = patternBreakRowIndex = patternBreakJumpPatternIndex = -1;
 		
-		jumpLoopPositionSet = false;
-		jumpLoopPatternIndex = jumpLoopPatternRow = jumpLoopRepeatCount = -1;
-
 		modFinished = false;
 		
 		calculateVolRampLen();
@@ -982,7 +984,7 @@ public abstract class BasicModMixer
 	}
 	protected boolean isInfinitLoop(final int currentArrangement, final PatternRow patternRow)
 	{
-		return (mod.isArrangementPositionPlayed(currentArrangement) && patternRow.isRowPlayed() && !jumpLoopPositionSet);
+		return (mod.isArrangementPositionPlayed(currentArrangement) && patternRow.isRowPlayed());
 	}
 	protected boolean isInfinitLoop(final int currentArrangement, final int currentRow)
 	{
@@ -1042,6 +1044,17 @@ public abstract class BasicModMixer
 		}
 	}
 	/**
+	 * when stepping to a new Pattern - Position needs new set...
+	 * @since 21.01.2014
+	 */
+	private void resetJumpPositionSet()
+	{
+		for (int c=0; c<maxChannels; c++)
+		{
+			channelMemory[c].jumpLoopPositionSet = false;
+		}
+	}
+	/**
 	 * Do the events during a Tick.
 	 * @return true, if finished! 
 	 */
@@ -1091,31 +1104,37 @@ public abstract class BasicModMixer
 					doRowEvent();
 					// and step to the next row... Even if there are no more -  we will find out later!
 					currentRow++;
-					if (currentRow>=currentPattern.getRowCount() || patternBreakRowIndex!=-1 || patternPosJumpPatternIndex!=-1)
+					if (patternJumpPatternIndex!=-1) // Do not check infinit Loops here, this is never infinit
+					{
+						currentRow = patternJumpPatternIndex;
+						patternJumpPatternIndex = -1;
+					}
+					if (currentRow>=currentPattern.getRowCount() || 
+						patternBreakRowIndex!=-1 || patternBreakJumpPatternIndex!=-1)
 					{
 						mod.setArrangementPositionPlayed(currentArrangement);
-						if (patternPosJumpPatternIndex!=-1)
+						if (patternBreakJumpPatternIndex!=-1)
 						{
 							final int checkRow = (patternBreakRowIndex!=-1)?patternBreakRowIndex:currentRow-1;
-							final boolean infinitLoop = isInfinitLoop(patternPosJumpPatternIndex, checkRow);
+							final boolean infinitLoop = isInfinitLoop(patternBreakJumpPatternIndex, checkRow);
 							if (infinitLoop && doNoLoops==Helpers.PLAYER_LOOP_IGNORE)
 							{
-								patternBreakRowIndex = patternPosJumpPatternIndex = -1;
-								jumpLoopPositionSet = false;
+								patternBreakRowIndex = patternBreakJumpPatternIndex = -1;
+								resetJumpPositionSet();
 								currentArrangement++;
 							}
 							else
 							{
-								currentArrangement = patternPosJumpPatternIndex;
+								currentArrangement = patternBreakJumpPatternIndex;
 							}
-							patternPosJumpPatternIndex = -1;
+							patternBreakJumpPatternIndex = -1;
 							// and activate fadeout, if wished
 							if (infinitLoop && doNoLoops == Helpers.PLAYER_LOOP_FADEOUT)
 								doFadeOut = true;
 						}
 						else
 						{
-							jumpLoopPositionSet = false; // Stepping to a new Pattern - Position needs new set...
+							resetJumpPositionSet();
 							currentArrangement++;
 						}
 						
@@ -1126,7 +1145,7 @@ public abstract class BasicModMixer
 						}
 						else
 							currentRow = 0;
-						
+						// End of song? Fetch new pattern if not...
 						if (currentArrangement<mod.getSongLength())
 						{
 							currentPatternIndex = mod.getArrangement()[currentArrangement];
