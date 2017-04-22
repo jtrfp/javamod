@@ -48,6 +48,11 @@
 	            </property>
 	        </activation>
 			<build>
+			    <resources>
+			        <resource>
+			            <directory>src/main/java/de/quippy/javamod/main/gui/ressources</directory>
+			        </resource>
+			    </resources>
 				<plugins>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
